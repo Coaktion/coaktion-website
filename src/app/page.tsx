@@ -331,10 +331,24 @@ export default function Page() {
             </span>
           </div>
 
-          <div className="min-h-full">
-            <BrandBox logoTitle="Aktie Now" brandLogoPath="/aktie-logo.svg">
-              <p>Transformando o mercado financeiro com tecnologia de ponta.</p>
-            </BrandBox>
+          <div className="h-full w-full px-4 md:px-16 py-10">
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
+              <BrandBox logoTitle="Aktie Now" brandLogoPath="/aktie-logo.svg">
+                <p>
+                  Transformando o mercado financeiro com tecnologia de ponta.
+                </p>
+              </BrandBox>
+
+              <BrandBox logoTitle="Nubank" brandLogoPath="/nubank-logo.svg">
+                <p>Inovação digital com foco em experiência do cliente.</p>
+              </BrandBox>
+
+              <BrandBox logoTitle="Itaú" brandLogoPath="/itau-logo.svg">
+                <p>
+                  Presente na vida dos brasileiros com tecnologia e confiança.
+                </p>
+              </BrandBox>
+            </div>
           </div>
         </section>
 
