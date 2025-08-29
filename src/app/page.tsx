@@ -333,19 +333,43 @@ export default function Page() {
 
           <div className="h-full w-full px-4 md:px-16 py-10">
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <BrandBox logoTitle="Aktie Now" brandLogoPath="/aktie-logo.svg">
-                <p>
-                  Transformando o mercado financeiro com tecnologia de ponta.
+              <BrandBox logoTitle="Aktie Now" brandLogoPath="/aktie-now.svg">
+                <p className="md:text-[16px] text-white leading-6">
+                  Consultoria estratégica em CX que transforma operações de
+                  atendimento em ativos de negócio. Com expertise em Zendesk e
+                  soluções complementares, eleva a experiência do cliente,
+                  otimiza processos e gera resultados em escala.
+                </p>
+
+                <a className="place-self-start mt-6 text-white cursor-pointer font-bold text-sm">
+                  Saiba mais
+                </a>
+              </BrandBox>
+
+              <BrandBox logoTitle="Droz" brandLogoPath="/droz.svg">
+                <p className="md:text-[16px] text-white leading-6">
+                  Telefonia em nuvem que garante estabilidade, qualidade
+                  superior de chamadas e flexibilidade de integração.
+                  Proporciona conexões consistentes entre empresas e clientes em
+                  todos os pontos da jornada.
                 </p>
               </BrandBox>
 
-              <BrandBox logoTitle="Nubank" brandLogoPath="/nubank-logo.svg">
-                <p>Inovação digital com foco em experiência do cliente.</p>
+              <BrandBox logoTitle="Callwe" brandLogoPath="/callwe.svg">
+                <p className="md:text-[16px] text-white leading-6">
+                  Plataforma de automação de experiência do cliente que combina
+                  IA e orquestração de canais. Simplifica processos de
+                  atendimento, aumenta a produtividade e eleva a satisfação de
+                  forma ágil e escalável.
+                </p>
               </BrandBox>
 
-              <BrandBox logoTitle="Itaú" brandLogoPath="/itau-logo.svg">
-                <p>
-                  Presente na vida dos brasileiros com tecnologia e confiança.
+              <BrandBox logoTitle="Workise" brandLogoPath="/workise.svg">
+                <p className="md:text-[16px] text-white leading-6">
+                  Parceira em transformação digital especializada em automação
+                  de fluxos de trabalho com monday.com. Simplifica processos,
+                  integra times e gera eficiência operacional com tecnologia,
+                  método e inteligência aplicada.
                 </p>
               </BrandBox>
             </div>
