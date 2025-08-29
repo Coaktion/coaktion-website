@@ -21,8 +21,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Matheus de Paula",
-  description: "Matheus de Paula",
+  title: "Coaktion",
+  description: "Coaktion - Simplificando a transformação digital.",
 };
 
 export default async function RootLayout({
