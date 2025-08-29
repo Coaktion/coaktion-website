@@ -35,7 +35,7 @@ export const CountrySelect = ({ options, value }: Props): JSX.Element => {
   return (
     <div className="relative w-12 md:w-28">
       <div
-        className="flex items-center justify-between bg-gray-800 p-1 md:p-2 rounded-lg border border-gray-600 cursor-pointer hover:border-primary-700"
+        className="flex items-center justify-between bg-gray-800 p-1 md:p-2 rounded-lg border border-gray-600 cursor-pointer hover:border-[#C4009F]"
         onClick={() => setOpenDropDown(!openDropDown)}
       >
         {flag && (
@@ -50,7 +50,7 @@ export const CountrySelect = ({ options, value }: Props): JSX.Element => {
             <span className="text-gray-300 hidden md:block">{flag.name}</span>
           </div>
         )}
-        <button className="text-primary-400 hidden md:block hover:text-primary-200">
+        <button className="text-[#A30084] hidden md:block hover:text-[#C4009F]">
           {openDropDown ? <ChevronUpIcon /> : <ChevronDownIcon />}
         </button>
       </div>
@@ -61,7 +61,7 @@ export const CountrySelect = ({ options, value }: Props): JSX.Element => {
             {optionsButSelected.map((option, i) => (
               <div
                 key={i}
-                className="flex items-center gap-2 p-2 hover:bg-primary-700 hover:text-white cursor-pointer transition-colors"
+                className="flex items-center gap-2 p-2 hover:bg-[#C4009F] hover:text-white cursor-pointer transition-colors"
                 onClick={() => {
                   onChange(option);
                   setOpenDropDown(false);

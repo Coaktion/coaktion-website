@@ -3,6 +3,8 @@
 /* eslint-disable prefer-const */
 "use client";
 import { animate, useMotionValue } from "framer-motion";
+import BR from "../../public/brazil.svg";
+import US from "../../public/usa.svg";
 import { useEffect, useRef } from "react";
 import useMeasure from "react-use-measure";
 import { AnimatedNumber } from "./components/animated-number";
@@ -12,12 +14,24 @@ import { firstLineBrands, secondLineBrands } from "./utils/constants";
 import { PinkButton } from "./components/button";
 import Typewriter from "./components/fancy/typewritter";
 import { BrandBox } from "./components/brand-box";
+import VerticalCutReveal from "./components/fancy/vertical-reveal";
+import { StickFooter } from "./components/footer";
+import { CountrySelect } from "./components/language-select";
+import { useLocale, useTranslations } from "next-intl";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
   const numbersSectionRef = useRef(null);
+  const prizesSectionRef = useRef(null);
 
   const XTranslation = useMotionValue(0);
+  const t = useTranslations("Texts");
+
+  const locale = useLocale();
+  const options = [
+    { name: "PT", imgLink: BR },
+    { name: "EN", imgLink: US },
+  ];
 
   useEffect(() => {
     let controls;
@@ -44,26 +58,28 @@ export default function Page() {
               <Image
                 src="/logo-co-aktion.svg"
                 alt="Logo"
-                className="h-10 w-auto"
+                className="md:h-10  h-6 w-auto"
                 width={120}
                 height={40}
               />
             </div>
 
             {/* Links */}
-            <nav className="flex gap-6">
+            <nav className="flex gap-6 items-center">
               <a
-                href="#section1"
-                className="text-white text-lg hover:text-[#C4009F] transition duration-300 ease-out"
+                href="https://coaktion.inhire.app/vagas"
+                target="_blank"
+                className="text-white text-sm md:text-[16px] hover:text-[#C4009F] transition duration-300 ease-out"
               >
-                Seja um Colab
+                {t("navWorkWithUs")}
               </a>
               <a
                 href="#section2"
-                className="text-white text-lg hover:text-[#C4009F] transition duration-300 ease-out"
+                className="text-white text-sm md:text-[16px] hover:text-[#C4009F] transition duration-300 ease-out"
               >
-                Contato
+                {t("navContact")}
               </a>
+              <CountrySelect options={options} value={locale} />
             </nav>
           </div>
         </header>
@@ -74,18 +90,12 @@ export default function Page() {
             className="text-white px-4 flex items-center justify-center flex-col md:px-8 w-full h-full bg-cover bg-center bg-no-repeat"
             style={{ backgroundImage: "url('/esfera.png')" }}
           >
-            <Typewriter
-              showCursor={false}
-              speed={10}
-              text="Simplificamos a transformação digital. Elevamos a experiência do cliente."
-              className="text-3xl mb-8 lg:text-4xl md:text-4xl"
-            />
-            <Typewriter
-              speed={30}
-              showCursor={false}
-              text="Elevamos a experiência do cliente."
-              className="mt-4 text-xl mb-8 lg:text-4xl md:text-4xl font-bold"
-            />
+            <h1 className="text-[16px] mb-8 lg:text-4xl md:text-4xl">
+              {t("h1")}
+            </h1>
+            <h1 className="mt-4 text-[16px] text-xl mb-8 lg:text-4xl md:text-4xl font-bold">
+              {t("h2")}
+            </h1>
 
             <button
               className="
@@ -102,7 +112,7 @@ export default function Page() {
       "
               aria-label="Comece agora"
             >
-              Comece agora
+              {t("bannerButton")}
               <Image
                 src="/circle-arrow.svg"
                 height={24}
@@ -116,10 +126,10 @@ export default function Page() {
         {/* Seção 2 */}
         <section
           ref={numbersSectionRef}
-          className="w-full py-16 flex-col md:gap-12 items-center flex md:py-16 min-h-[360px] px-4 md:px-8 lg:px-16"
+          className="w-full py-16 flex-col border md:gap-12 items-center flex md:py-16 min-h-[360px] px-4 md:px-8 lg:px-16"
         >
           <div className="max-w-7xl mx-auto">
-            <h3 className="text-3xl text-[#0B0B0B] leading-snug">
+            <h3 className="md:text-3xl text-[16px] text-[#0B0B0B] leading-snug">
               Transformar é a única forma
               <br />
               <span>
@@ -130,48 +140,53 @@ export default function Page() {
             </h3>
           </div>
 
-          <div className="w-full flex mx-auto">
-            <div className="w-[65%] flex flex-col gap-3">
-              <div className="w-full items-center md:gap-6 flex rounded-md md:min-h-[70px] bg-white shadow-sm px-4 py-3 border border-[#A30084]">
-                <span className="font-bold md:text-[42px] text-[#A30084]">
+          <div className="w-full md:flex mt-8 border md:mt-0">
+            <div className="md:w-[65%] flex flex-col gap-3 w-[100%]">
+              <div className="w-full py-16 md:gap-6 flex-col md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
+                <span className="font-bold self-center md:text-[42px] text-[#A30084]">
                   <AnimatedNumber
+                    className="font-bold text-[42px] text-[#A30084]"
                     triggerRef={numbersSectionRef}
                     value={72}
                     duration={3}
                   />
+                  %
                 </span>
-                <p className="text-md">
+                <VerticalCutReveal>
                   dos líderes ainda não veem um caminho claro para atingir os
                   objetivos da transformação digital. Microsoft
-                </p>
+                </VerticalCutReveal>
               </div>
 
-              <div className="w-full items-center md:gap-6 flex rounded-md md:min-h-[70px] bg-white shadow-sm px-4 py-3 border border-[#A30084]">
+              <div className="w-full items-center md:gap-6 flex-col md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 py-3 border border-[#A30084]">
                 <span className="font-bold md:text-[42px] text-[#A30084]">
                   <AnimatedNumber
+                    className="font-bold md:text-[42px] text-[#A30084"
                     triggerRef={numbersSectionRef}
                     value={76}
                     duration={3}
                   />
+                  %
                 </span>
-                <p className="text-md">
-                  dos líderes acreditam que a transformação digital é uma
-                  prioridade para seus negócios. Microsoft
-                </p>
+                <VerticalCutReveal>
+                  dos projetos falham por não colocar o cliente no centro. VML
+                </VerticalCutReveal>
               </div>
 
-              <div className="w-full items-center md:gap-6 flex rounded-md md:min-h-[70px] bg-white shadow-sm px-4 py-3 border border-[#A30084]">
+              <div className="w-full items-center md:gap-6 flex-col md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 py-3 border border-[#A30084]">
                 <span className="font-bold md:text-[42px] text-[#A30084]">
                   <AnimatedNumber
+                    className="font-bold md:text-[42px] text-[#A30084]"
                     triggerRef={numbersSectionRef}
                     value={61}
                     duration={3}
                   />
+                  %
                 </span>
-                <p className="text-md">
-                  dos líderes acreditam que a transformação digital é uma
-                  prioridade para seus negócios. Microsoft
-                </p>
+                <VerticalCutReveal>
+                  dos executivos afirmam que a falta de investimento em CX já
+                  resultou em perda de competitividade. PwC
+                </VerticalCutReveal>
               </div>
             </div>
 
@@ -210,6 +225,7 @@ export default function Page() {
           style={{
             background: `linear-gradient(to bottom, #0a0a0a 0%, #1a0016 70%, #5b0041 100%)`,
           }}
+          ref={prizesSectionRef}
         >
           <h1 className="md:text-3xl text-white">
             Experiência e inovação ao{" "}
@@ -237,7 +253,16 @@ export default function Page() {
                 className="mb-3 md:h-16 md:w-16"
               />
               <p>Projetos em</p>
-              <p className="font-bold text-white text-2xl mt-2">+ 11 países</p>
+              <p className="font-bold text-white text-2xl mt-2">
+                mais de{" "}
+                <AnimatedNumber
+                  className="font-extralight text-white"
+                  triggerRef={prizesSectionRef}
+                  duration={1}
+                  value={11}
+                />{" "}
+                países
+              </p>
             </div>
 
             {/* 3 */}
@@ -249,7 +274,13 @@ export default function Page() {
               />
               <p>Das 100 maiores marcas</p>
               <p className="font-bold text-white text-2xl mt-2">
-                15 estão com <br /> a gente
+                <AnimatedNumber
+                  className="font-bold font-extralight text-white"
+                  triggerRef={prizesSectionRef}
+                  duration={1}
+                  value={15}
+                />{" "}
+                estão com <br /> a gente
               </p>
             </div>
           </div>
@@ -272,14 +303,28 @@ export default function Page() {
                 </h2>
                 <img
                   src="/monday.svg"
-                  alt="Consumidor Moderno"
+                  alt="Monday.com"
                   className="h-[56px] self-center md:w-48"
                 />
               </div>
             </div>
             {/* Premio CX */}
             <div className="flex-1 p-6 rounded-xl brightness-150 shadow-[0_0_8px_#C4009F] backdrop-brightness-100 text-center transform scale-105 z-1000 mt-6 border border-[#C4009F]">
-              Item 2
+              <div className="relative z-10 flex flex-col">
+                <img
+                  src="/star.svg"
+                  alt="estrela"
+                  className="self-center md:w-12 md:h-24"
+                />
+                <h2 className="font-bold text-lg">
+                  Consultoria estratégica de 2025
+                </h2>
+                <img
+                  src="/consumidor-moderno.svg"
+                  alt="Consumidor Moderno"
+                  className="h-[56px] self-center md:w-48"
+                />
+              </div>
             </div>
             {/* Parceiro do Ano */}
             <div className="relative flex-1 items-center backdrop-brightness-40  justify-center  p-6 flex flex-col gap-2 rounded-xl min-h-[270px] text-center overflow-hidden z-10 border border-[#C4009F]/30">
@@ -376,10 +421,15 @@ export default function Page() {
           </div>
         </section>
 
+        {/* Form get response */}
+        <section className="w-full py-16 px-4 md:px-8 flex items-center justify-center lg:px-16">
+          <span className="font-bold self-center text-[#A30084]">
+            Formulário de contato{" "}
+          </span>
+        </section>
+
         {/* Footer */}
-        <footer className="w-full py-10 px-4 md:px-8 lg:px-16 bg-gray-100">
-          <div className="max-w-7xl mx-auto">{/* Conteúdo do footer */}</div>
-        </footer>
+        <StickFooter />
       </main>
     </>
   );

@@ -50,7 +50,7 @@ const VerticalCutReveal = forwardRef<VerticalCutRevealRef, TextProps>(
         damping: 22,
       },
       splitBy = "words",
-      staggerDuration = 0.2,
+      staggerDuration = 0.05,
       staggerFrom = "first",
       containerClassName,
       wordLevelClassName,

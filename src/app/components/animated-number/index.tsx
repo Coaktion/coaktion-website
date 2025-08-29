@@ -6,12 +6,14 @@ interface AnimatedNumberProps {
   value: number;
   duration?: number;
   triggerRef?: React.RefObject<HTMLElement | null>;
+  className: string;
 }
 
 export function AnimatedNumber({
   value,
   duration = 2,
   triggerRef,
+  className,
 }: AnimatedNumberProps) {
   const localRef = useRef(null);
   const refToObserve = triggerRef || localRef;
@@ -41,8 +43,8 @@ export function AnimatedNumber({
   }, [isInView, value, duration]);
 
   return (
-    <span ref={localRef} className="font-bold md:text-[42px] text-[#A30084]">
-      {displayValue}%
+    <span ref={localRef} className={className}>
+      {displayValue}
     </span>
   );
 }
