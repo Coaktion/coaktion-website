@@ -72,7 +72,7 @@ export default function Page() {
         <section className="w-full h-[calc(100vh-9px)] flex items-center justify-center">
           <div
             className="text-white px-4 flex items-center justify-center flex-col md:px-8 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/esfera_fullhd.png')" }}
+            style={{ backgroundImage: "url('/esfera.png')" }}
           >
             <Typewriter
               showCursor={false}
