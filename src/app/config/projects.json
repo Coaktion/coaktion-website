@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "title": "Caminho do Lar",
+      "img": "/projects/caminho_do_lar.png",
+      "smallDescription": "Plataforma para conectar cães e gatos em situação de rua a potenciais novos tutores",
+      "link": "https://github.com/MatheusDev20/caminho-do-lar"
+    },
+    {
+      "title": "People Pilot",
+      "img": "/projects/people_pilot_dash.png",
+      "smallDescription": "Solução SASS para organização e manutenção de colaboradores",
+      "link": "https://github.com/MatheusDev20/People-Pilot"
+    },
+    {
+      "title": "Daily Manager",
+      "img": "/projects/daily-manager.png",
+      "smallDescription": "Solução para manejar reuniões e tarefas do time desenvolvimento de forma efiiciente",
+      "link": "https://github.com/MatheusDev20/d-manager"
+    }
+  ]
+}
