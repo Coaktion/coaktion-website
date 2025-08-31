@@ -4,6 +4,7 @@ import { animate, useInView } from "framer-motion";
 
 interface AnimatedNumberProps {
   value: number;
+  isPercentage?: boolean;
   duration?: number;
   triggerRef?: React.RefObject<HTMLElement | null>;
   className: string;
@@ -13,6 +14,7 @@ export function AnimatedNumber({
   value,
   duration = 2,
   triggerRef,
+  isPercentage = false,
   className,
 }: AnimatedNumberProps) {
   const localRef = useRef(null);
@@ -45,6 +47,9 @@ export function AnimatedNumber({
   return (
     <span ref={localRef} className={className}>
       {displayValue}
+      {isPercentage && (
+        <span className="font-bold md:text-[42px] text-[#A30084]">%</span>
+      )}
     </span>
   );
 }

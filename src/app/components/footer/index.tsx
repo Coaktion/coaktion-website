@@ -2,11 +2,11 @@
 export const StickFooter: React.FC = () => {
   return (
     <div className="bottom-0 w-full flex-col min-h-[320px] flex justify-center items-center bg-black mt-6 md:py-18 px-4 md:px-16 lg:px-24">
-      <div className="flex items-center justify-evenly min-w-[70%]">
+      <div className="flex md:flex-row flex-col md:gap-0 items-center justify-evenly min-w-[70%]">
         <img
           src="/footer-logo.svg"
           alt="CoAktion"
-          className="md:w-56 md:h-56 "
+          className="md:w-56 w-36 h-36 md:h-56 "
         />
         <div className="text-white">
           <div className="flex gap-3">
@@ -25,7 +25,7 @@ export const StickFooter: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col mt-8 md:mt-0  gap-2">
           <div className="flex gap-3">
             <a href="https://www.linkedin.com/company/coaktion/">
               {" "}
@@ -45,13 +45,13 @@ export const StickFooter: React.FC = () => {
             </a>
           </div>
 
-          <a className="text-white font-semibold cursor-pointer hover:text-[#A30084]">
+          <a className="text-white mt-6 md:mt-0  font-semibold cursor-pointer hover:text-[#A30084]">
             Politica e Privacidade
           </a>
-          <a className="text-white font-semibold cursor-pointer hover:text-[#A30084]">
+          <a className="text-white mt-6 md:mt-0 font-semibold cursor-pointer hover:text-[#A30084]">
             Política de Cookies
           </a>
-          <a className="text-white font-semibold cursor-pointer hover:text-[#A30084]">
+          <a className="text-white mt-6 md:mt-0 font-semibold cursor-pointer hover:text-[#A30084]">
             Termos e Condições
           </a>
         </div>

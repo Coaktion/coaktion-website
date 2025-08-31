@@ -33,7 +33,7 @@ export default function BrandSlider({
   }, [width, direction]);
 
   return (
-    <div className="w-full overflow-hidden bg-white py-8">
+    <div className="w-full overflow-hidden bg-white py-0 md:py-8">
       <motion.div className="flex gap-12" ref={ref} style={{ x }}>
         {[...brands, ...brands].map((brand, index) => (
           <div
