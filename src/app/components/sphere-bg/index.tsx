@@ -8,6 +8,7 @@ export const MovingSphereBackground = () => {
         w-full
         bg-[url('/circle-sphere.png')]
         bg-center bg-no-repeat
+        md:bg-[length:40%]
         bg-[length:contain]
         pointer-events-none z-0"
       animate={{
