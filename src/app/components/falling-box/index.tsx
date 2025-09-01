@@ -22,9 +22,9 @@ export const FallingBox = ({ children, className }: FallingRevealBoxProps) => {
         y: 0,
         opacity: 1,
         transition: {
-          duration: 1,
+          duration: 2.5,
           type: "spring",
-          bounce: 0.3,
+          bounce: 0.5,
         },
       });
       setHasAnimated(true);

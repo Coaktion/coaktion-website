@@ -6,7 +6,7 @@ export const StickFooter: React.FC = () => {
         <img
           src="/footer-logo.svg"
           alt="CoAktion"
-          className="md:w-56 w-36 h-36 md:h-56 "
+          className="md:w-[300px] w-36 h-36 md:h-56 "
         />
         <div className="text-white">
           <div className="flex gap-3">
@@ -20,7 +20,8 @@ export const StickFooter: React.FC = () => {
           <div className="flex mt-8 gap-3">
             <img src="/um.svg" alt="Brasil" />
             <span className="text-sm">
-              299 Alhambra Circle, St. 403 Coral Gables, FL 33134
+              299 Alhambra Circle, St. 403 <br />
+              Coral Gables, FL 33134
             </span>
           </div>
         </div>

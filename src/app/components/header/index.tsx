@@ -14,6 +14,7 @@ export const Header = ({ pathToResource }: Props) => {
     { name: "PT", imgLink: "/brazil.svg" },
     { name: "EN", imgLink: "/usa.svg" },
   ];
+
   return (
     <header className="w-full min-h-[80px] py-6 px-4 md:px-4 lg:px-32 bg-black">
       <div className="max-w-full mx-auto flex items-center justify-between">

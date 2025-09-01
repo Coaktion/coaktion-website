@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
 "use client";
@@ -16,7 +15,6 @@ import BrandSlider from "./components/brand-slider";
 import { firstLineBrands, secondLineBrands } from "./utils/constants";
 import { PinkButton } from "./components/button";
 import { BrandBox } from "./components/brand-box";
-import VerticalCutReveal from "./components/fancy/vertical-reveal";
 import { StickFooter } from "./components/footer";
 import { useTranslations } from "next-intl";
 import { MovingSphereBackground } from "./components/sphere-bg";
@@ -24,6 +22,11 @@ import { DotPagination } from "./components/DotPagination";
 import { FallingBox } from "./components/falling-box";
 import { Header } from "./components/header";
 import Link from "next/link";
+import { OfficeIcon } from "./components/icons/office-icon";
+import { Badge } from "./components/icons/badge";
+import { EarthIcon } from "./components/icons/earth-icon";
+import { PremiumCard } from "./components/premium-card";
+import { useIsMobile } from "./hooks/mobile";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
@@ -34,6 +37,7 @@ export default function Page() {
 
   const XTranslation = useMotionValue(0);
   const t = useTranslations("Texts");
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     let controls;
@@ -72,9 +76,15 @@ export default function Page() {
       img: "/gartner.svg",
     },
   ];
-
-  const selected = prizes.find((p) => p.id === selectedPrize);
-
+  const showPrizes = isMobile ? 1 : 3;
+  const reorderedPrizes = (() => {
+    const selected = prizes.find((p) => p.id === selectedPrize);
+    if (!selected) return prizes.slice(0, showPrizes);
+    const otherPrizes = prizes.filter((p) => p.id !== selectedPrize);
+    if (isMobile) return [selected];
+    return [otherPrizes[0], selected, otherPrizes[1]].filter(Boolean);
+  })();
+  console.log(isMobile, reorderedPrizes);
   return (
     <>
       <main className="bg-white text-gray-800 ">
@@ -88,12 +98,12 @@ export default function Page() {
           md:bg-cover md:bg-no-repeat md:bg-center max-h-[calc(100vh-80px)] min-h-screen md:h-screen relative bg-cover bg-no-repeat bg-center overflow-hidden flex md:items-center items-center justify-center"
         >
           <MovingSphereBackground />
-          <div className="relative z-10 py-7 flex flex-col items-center justify-center text-white">
-            <div className="flex flex-col mt-12 items-center text-center max-w-3xl px-4 md:px-0">
-              <h1 className="text-[16px] md:mb-0 mb-0 self-center lg:text-4xl md:text-4xl">
+          <div className="relative z-10 flex flex-col items-center text-white">
+            <div className="flex flex-col py-8 mt-12 items-center text-center max-w-3xl px-4 md:px-0">
+              <h1 className="text-[16px] md:mb-0 mb-0 self-center lg:text-4xl md:text-[42px]">
                 {t("h1")}
               </h1>
-              <h1 className="mt-4 text-[16px] text-xl lg:text-4xl md:text-4xl font-bold">
+              <h1 className="mt-4  text-[16px] text-sm md:text-[42px] font-bold">
                 {t("h2")}
               </h1>
             </div>
@@ -101,8 +111,8 @@ export default function Page() {
             <Link href="/contato">
               <button
                 className="
-        group inline-flex items-center mt-12 md:mt-6 gap-2
-        rounded-xl md:px-6 px-3 md:py-3 py-2 font-medium  text-white
+        group inline-flex items-center  mt-12 md:mt-6 gap-2
+        rounded-xl md:px-6 px-3 md:py-3 py-2 font-medium md:text-[18px] text-[16px]  text-white
         bg-gradient-to-tr from-[#A30084] to-[#C4009F]
         shadow-lg shadow-[#A30084]/30
         transition duration-300 ease-out
@@ -129,10 +139,10 @@ export default function Page() {
         {/* Seção 2 */}
         <section
           ref={numbersSectionRef}
-          className="w-full py-16 flex-col border md:gap-12 items-center flex md:py-16 min-h-[360px] px-4 md:px-8 lg:px-16"
+          className="w-full py-16 flex-col md:gap-12 items-center flex md:py-16 min-h-[360px] px-4 md:px-8 lg:px-16"
         >
           <div className="max-w-7xl mx-auto">
-            <h3 className="md:text-3xl text-[16px] text-[#0B0B0B] leading-snug">
+            <h3 className="md:text-[42px] text-[16px] text-[#0B0B0B] leading-snug">
               Transformar é a única forma
               <br />
               <span>
@@ -146,61 +156,54 @@ export default function Page() {
           <div className="w-full md:flex mt-8 md:mt-0">
             <div className="md:w-[65%] flex flex-col gap-3 w-[100%]">
               <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
-                <AnimatedNumber
-                  className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]"
-                  triggerRef={numbersSectionRef}
-                  value={72}
-                  duration={2}
-                  isPercentage={true}
-                />
-                <VerticalCutReveal>
+                <span className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
+                  72%
+                </span>
+                <p className="text-md md:text-[18px]">
                   dos líderes ainda não veem um caminho claro para atingir os
                   objetivos da transformação digital.
-                </VerticalCutReveal>
+                </p>
               </FallingBox>
 
               <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
-                <AnimatedNumber
-                  className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]"
-                  triggerRef={numbersSectionRef}
-                  value={76}
-                  isPercentage={true}
-                  duration={2}
-                />
-                <VerticalCutReveal>
+                <span className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
+                  76%
+                </span>
+                <p className="text-md md:text-[18px]">
                   dos projetos falham por não colocar o cliente no centro.
-                </VerticalCutReveal>
+                </p>
               </FallingBox>
 
               <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
-                <AnimatedNumber
-                  className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]"
-                  triggerRef={numbersSectionRef}
-                  value={61}
-                  isPercentage={true}
-                  duration={2}
-                />
+                <span className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
+                  61%
+                </span>
 
-                <VerticalCutReveal>
+                <p className="text-md md:text-[18px]">
                   dos executivos afirmam que a falta de investimento em CX já
                   resultou em perda de competitividade.
-                </VerticalCutReveal>
+                </p>
               </FallingBox>
             </div>
 
             <div className="md:w-[35%] w-full mt-6 md:mt-0 px-12 self-center">
-              <p className="text-md">
+              <p className="text-md md:text-[20px]">
                 É por isso que existimos: para que você não faça parte dessas
                 estatísticas.
               </p>
 
               <br />
-              <p>
+              <p className="text-md md:text-[20px]">
                 Somos um ecossistema que une{" "}
-                <span className="font-bold">Experiência do Cliente</span> e{" "}
-                <span className="font-bold">Transformação Digital</span> para
-                evoluir negócios. Conectamos tecnologia, automação e gestão de
-                processos para gerar eficiência, escala e experiências que
+                <span className="md:text-[20px] text-16px font-bold">
+                  Experiência do Cliente
+                </span>{" "}
+                e{" "}
+                <span className="md:text-[20px] text-16px first-line:font-bold">
+                  Transformação Digital
+                </span>{" "}
+                para evoluir negócios. Conectamos tecnologia, automação e gestão
+                de processos para gerar eficiência, escala e experiências que
                 impulsionam resultados.
               </p>
               <Link href="/contato">
@@ -223,7 +226,19 @@ export default function Page() {
         <section
           className="w-full py-16 flex-col md:gap-12 items-center flex md:py-16 min-h-[680px] px-4 md:px-8 lg:px-16 text-white"
           style={{
-            background: `linear-gradient(to bottom, #0a0a0a 0%, #1a0016 70%, #5b0041 100%)`,
+            backgroundImage: `
+      radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 55%, rgba(0, 0, 0, 0.6) 100%),
+      linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent 40%),
+      linear-gradient(to left, rgba(0, 0, 0, 0.6), transparent 30%),
+      linear-gradient(to right, rgba(0, 0, 0, 0.6), transparent 30%),
+      linear-gradient(to bottom,
+        #0a0a0a 0%,
+        #1a0016 40%,
+        #3a0030 60%,
+        #5b0041 80%,
+        #82025e 100%)
+    `,
+            backgroundBlendMode: "multiply",
           }}
           ref={prizesSectionRef}
         >
@@ -234,27 +249,19 @@ export default function Page() {
           <div className="md:grid md:grid-cols-3 flex flex-col w-full min-h-[90px]">
             {/* 1 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
-              <img
-                src="/location.svg"
-                alt="Localização"
-                className="mb-2 md:h-16 md:w-16"
-              />
+              <OfficeIcon />
               <p className="text-md">Escritórios no</p>
-              <p className="font-bold text-white md:text-2xl text-[20px] mt-2">
+              <p className="font-bold text-white md:text-[30px] text-[20px] mt-2">
                 Brasil e Estados <br /> Unidos
               </p>
             </div>
 
             {/* 2 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
-              <img
-                src="/earth.svg"
-                alt="Terra"
-                className="mb-3 md:h-16 md:w-16"
-              />
+              <EarthIcon />
               <p>Projetos em</p>
-              <p className="font-bold text-white md:text-2xl text-[20px] mt-2">
-                mais de{" "}
+              <p className="font-bold text-white md:text-[35px] text-[20px] mt-4">
+                + de{" "}
                 <AnimatedNumber
                   className="font-extralight text-white"
                   triggerRef={prizesSectionRef}
@@ -267,13 +274,9 @@ export default function Page() {
 
             {/* 3 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
-              <img
-                src="/badge.svg"
-                alt="Distintivo"
-                className="mb-2 md:h-16 md:w-16"
-              />
+              <Badge />
               <p>Das 100 maiores marcas</p>
-              <p className="font-bold text-white md:text-2xl text-[20px] mt-2">
+              <p className="font-bold text-white md:text-[30px] text-[20px] mt-2">
                 <AnimatedNumber
                   className="font-extralight text-white"
                   triggerRef={prizesSectionRef}
@@ -285,39 +288,21 @@ export default function Page() {
             </div>
           </div>
           <h1 className="md:text-3xl md:mt-16 mt-8 md:mb-0 mb-8 text-white">
-            <span className="font-bold">Reconhecidos e premiados</span>{" "}
+            <span className="font-bold text-[18px] md:text-[36px]">
+              Reconhecidos e premiados
+            </span>{" "}
             globalmente
           </h1>
 
           <div className="flex gap-12 flex-col w-full">
-            <div className="flex w-[80%] md:w-[50%] px-6 py-6 self-center md:gap-12">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={selected?.id}
-                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                  animate={{ opacity: 1, scale: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                  transition={{ duration: 0.4, ease: "easeInOut" }}
-                  className={`
-      flex-1 p-6 rounded-xl text-center
-      shadow-[0_0_16px_#C4009F] border border-[#C4009F]
-      flex flex-col items-center justify-center gap-4
-      min-h-[270px] backdrop-brightness-110
-    `}
-                >
-                  <img
-                    src="/star.svg"
-                    alt="estrela"
-                    className="self-center md:w-24 h-16 w-16 md:h-24"
-                  />
-                  <h2 className="font-bold text-lg">{selected?.title}</h2>
-                  <img
-                    src={selected?.img}
-                    alt={selected?.title}
-                    className={"self-center h-[36px] mt-8 md:h-[36px]"}
-                  />
-                </motion.div>
-              </AnimatePresence>
+            <div className="flex items-center justify-center md:flex-row">
+              {reorderedPrizes.map((prize) => (
+                <PremiumCard
+                  key={prize.id}
+                  prize={prize}
+                  highlighted={prize.id === selectedPrize}
+                />
+              ))}
             </div>
 
             <DotPagination
