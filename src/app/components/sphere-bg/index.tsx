@@ -5,7 +5,7 @@ export const MovingSphereBackground = () => {
     <motion.div
       className="
         absolute inset-0
-        bg-[url('/Esfera.png')]
+        bg-[url('/esfera.png')]
         bg-center bg-no-repeat bg-contain
         pointer-events-none z-0"
       animate={{
