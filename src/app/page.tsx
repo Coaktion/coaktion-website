@@ -2,9 +2,12 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
 "use client";
-import { animate, useMotionValue } from "framer-motion";
-import BR from "../../public/brazil.svg";
-import US from "../../public/usa.svg";
+import {
+  animate,
+  AnimatePresence,
+  motion,
+  useMotionValue,
+} from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 import { AnimatedNumber } from "./components/animated-number";
@@ -15,9 +18,12 @@ import { PinkButton } from "./components/button";
 import { BrandBox } from "./components/brand-box";
 import VerticalCutReveal from "./components/fancy/vertical-reveal";
 import { StickFooter } from "./components/footer";
-import { CountrySelect } from "./components/language-select";
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import { MovingSphereBackground } from "./components/sphere-bg";
+import { DotPagination } from "./components/DotPagination";
+import { FallingBox } from "./components/falling-box";
+import { Header } from "./components/header";
+import Link from "next/link";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
@@ -28,12 +34,6 @@ export default function Page() {
 
   const XTranslation = useMotionValue(0);
   const t = useTranslations("Texts");
-
-  const locale = useLocale();
-  const options = [
-    { name: "PT", imgLink: BR },
-    { name: "EN", imgLink: US },
-  ];
 
   useEffect(() => {
     let controls;
@@ -49,81 +49,62 @@ export default function Page() {
     return controls.stop;
   }, [XTranslation, width]);
 
-  // const prizes = [
-  //   {
-  //     id: 1,
-  //     title: "Platinum Partner - Advanced Delivery Partner",
-  //     img: "/monday.svg",
-  //   },
-  //   {
-  //     id: 2,
-  //     title: "Consultoria estratégica de 2025",
-  //     img: "/consumidor-moderno.svg",
-  //   },
-  //   {
-  //     id: 3,
-  //     title: "Parceiro do Ano América do Norte 2024",
-  //     img: "/zendesk.svg",
-  //   },
-  // ];
+  const prizes = [
+    {
+      id: 1,
+      title: "Platinum Partner - Advanced Delivery Partner",
+      img: "/monday.svg",
+    },
+    {
+      id: 2,
+      title: "Consultoria estratégica de 2025",
+      img: "/consumidor-moderno.svg",
+    },
+    {
+      id: 3,
+      title: "Parceiro do Ano América do Norte 2024",
+      img: "/zendesk.svg",
+    },
 
-  // const selected = prizes.find((p) => p.id === selectedPrize);
-  // const others = prizes.filter((p) => p.id !== selectedPrize);
-  // const ordered = [others[0], selected, others[1]];
+    {
+      id: 4,
+      title: "Líder em Gerenciamento e Relatórios de Projetos Adaptativos",
+      img: "/gartner.svg",
+    },
+  ];
+
+  const selected = prizes.find((p) => p.id === selectedPrize);
+  const others = prizes.filter((p) => p.id !== selectedPrize);
+  const ordered = [others[0], selected, others[1]];
 
   return (
     <>
       <main className="bg-white text-gray-800 ">
         {/* Header */}
-        <header className="w-full py-6 px-4 md:px-4 lg:px-32 bg-black">
-          <div className="max-w-full mx-auto flex items-center justify-between">
-            {/* Logo */}
-            <div>
-              <Image
-                src="/logo-co-aktion.svg"
-                alt="Logo"
-                className="md:h-10  h-6 w-auto"
-                width={120}
-                height={40}
-              />
+        <Header pathToResource="/" />
+        {/* Seção 1 */}
+        <section
+          className="w-full
+          bg-black 
+           md:bg-[url('/stars-bg.png')] 
+          md:bg-cover md:bg-no-repeat md:bg-center h-[calc(100vh-9px)] relative bg-cover bg-no-repeat bg-center overflow-hidden flex md:items-center items-center justify-center"
+        >
+          <MovingSphereBackground />
+          <div className="relative z-10 py-7 flex flex-col items-center justify-center text-white">
+            <div className="flex flex-col mt-12 items-center text-center max-w-3xl px-4 md:px-0">
+              <h1 className="text-[16px] md:mb-0 mb-0 self-center lg:text-4xl md:text-4xl">
+                {t("h1")}
+              </h1>
+              <h1 className="mt-4 text-[16px] text-xl lg:text-4xl md:text-4xl font-bold">
+                {t("h2")}
+              </h1>
             </div>
 
-            {/* Links */}
-            <nav className="flex gap-6 items-center">
-              <a
-                href="https://coaktion.inhire.app/vagas"
-                target="_blank"
-                className="text-white text-sm md:text-[16px] hover:text-[#C4009F] transition duration-300 ease-out"
-              >
-                {t("navWorkWithUs")}
-              </a>
-              <a
-                href="#section2"
-                className="text-white text-sm md:text-[16px] hover:text-[#C4009F] transition duration-300 ease-out"
-              >
-                {t("navContact")}
-              </a>
-              <CountrySelect options={options} value={locale} />
-            </nav>
-          </div>
-        </header>
-
-        {/* Seção 1 */}
-        <section className="w-full h-[calc(100vh-9px)] relative overflow-hidden bg-black flex items-center justify-center">
-          <MovingSphereBackground />
-
-          <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
-            <h1 className="text-[16px] mb-8 lg:text-4xl md:text-4xl">
-              {t("h1")}
-            </h1>
-            <h1 className="mt-4 text-[16px] text-xl mb-8 lg:text-4xl md:text-4xl font-bold">
-              {t("h2")}
-            </h1>
-
-            <button
-              className="
-        group inline-flex items-center mt-6 gap-2
-        rounded-xl px-6 py-3 font-medium text-white
+            <Link href="/contato">
+              <button
+                className="
+        group inline-flex items-center mt-12 md:mt-6 gap-2
+        rounded-xl md:px-6 px-3 md:py-3 py-2 font-medium  text-white
         bg-gradient-to-tr from-[#A30084] to-[#C4009F]
         shadow-lg shadow-[#A30084]/30
         transition duration-300 ease-out
@@ -133,16 +114,17 @@ export default function Page() {
         focus:outline-none focus-visible:ring-4 focus-visible:ring-[#A30084]/40
         focus-visible:ring-offset-2 focus-visible:ring-offset-black
       "
-              aria-label="Comece agora"
-            >
-              {t("bannerButton")}
-              <Image
-                src="/circle-arrow.svg"
-                height={24}
-                width={24}
-                alt="comece agora"
-              />
-            </button>
+                aria-label="Comece agora"
+              >
+                {t("bannerButton")}
+                <Image
+                  src="/circle-arrow.svg"
+                  height={24}
+                  width={24}
+                  alt="comece agora"
+                />
+              </button>
+            </Link>
           </div>
         </section>
 
@@ -165,47 +147,47 @@ export default function Page() {
 
           <div className="w-full md:flex mt-8 md:mt-0">
             <div className="md:w-[65%] flex flex-col gap-3 w-[100%]">
-              <div className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
+              <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
                 <AnimatedNumber
                   className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]"
                   triggerRef={numbersSectionRef}
                   value={72}
-                  duration={3}
+                  duration={2}
                   isPercentage={true}
                 />
                 <VerticalCutReveal>
                   dos líderes ainda não veem um caminho claro para atingir os
                   objetivos da transformação digital.
                 </VerticalCutReveal>
-              </div>
+              </FallingBox>
 
-              <div className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
+              <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
                 <AnimatedNumber
                   className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]"
                   triggerRef={numbersSectionRef}
                   value={76}
                   isPercentage={true}
-                  duration={3}
+                  duration={2}
                 />
                 <VerticalCutReveal>
                   dos projetos falham por não colocar o cliente no centro.
                 </VerticalCutReveal>
-              </div>
+              </FallingBox>
 
-              <div className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
+              <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
                 <AnimatedNumber
                   className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]"
                   triggerRef={numbersSectionRef}
                   value={61}
                   isPercentage={true}
-                  duration={3}
+                  duration={2}
                 />
 
                 <VerticalCutReveal>
                   dos executivos afirmam que a falta de investimento em CX já
                   resultou em perda de competitividade.
                 </VerticalCutReveal>
-              </div>
+              </FallingBox>
             </div>
 
             <div className="md:w-[35%] w-full mt-6 md:mt-0 px-12 self-center">
@@ -223,18 +205,20 @@ export default function Page() {
                 processos para gerar eficiência, escala e experiências que
                 impulsionam resultados.
               </p>
-              <button
-                className=" group inline-flex items-center mt-8 gap-2 rounded-xl px-6 py-3 font-medium text-white  bg-gradient-to-tr from-[#A30084] to-[#C4009F] shadow-lg shadow-[#A30084]/30 transition duration-300 ease-out hover:from-[#8A0072] hover:to-[#A30084] hover:shadow-[#A30084]/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#A30084]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-                aria-label="Comece agora"
-              >
-                Descubra como
-                <Image
-                  src="/circle-arrow.svg"
-                  width={12}
-                  height={12}
-                  alt="Descubra como"
-                />
-              </button>
+              <Link href="/contato">
+                <button
+                  className=" group inline-flex items-center mt-8 gap-2 rounded-xl px-6 py-3 font-medium text-white  bg-gradient-to-tr from-[#A30084] to-[#C4009F] shadow-lg shadow-[#A30084]/30 transition duration-300 ease-out hover:from-[#8A0072] hover:to-[#A30084] hover:shadow-[#A30084]/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#A30084]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  aria-label="Comece agora"
+                >
+                  Descubra como
+                  <Image
+                    src="/circle-arrow.svg"
+                    width={12}
+                    height={12}
+                    alt="Descubra como"
+                  />
+                </button>
+              </Link>
             </div>
           </div>
         </section>
@@ -302,79 +286,47 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <h1 className="md:text-3xl md:mt-3 mt-8 md:mb-0 mb-8 text-white">
+          <h1 className="md:text-3xl md:mt-16 mt-8 md:mb-0 mb-8 text-white">
             <span className="font-bold">Reconhecidos e premiados</span>{" "}
             globalmente
           </h1>
 
-          <div className="flex gap-12 px-6 flex-col w-full">
-            <div className="flex md:flex-row flex-col gap-8 md:gap-12">
-              {/* Premium Partner */}
-              <div
-                onClick={() => setSelectedPrize(1)}
-                className="relative cursor-pointer flex-1 items-center backdrop-brightness-40  justify-center  p-6 flex flex-col gap-2 rounded-xl min-h-[270px] text-center overflow-hidden z-10 border border-[#C4009F]/30"
-              >
-                <div className="relative z-10 flex flex-col">
+          <div className="flex gap-12 flex-col w-full">
+            <div className="flex w-[80%] md:w-[50%] px-6 py-6 self-center md:gap-12">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={selected?.id}
+                  initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  exit={{ opacity: 0, scale: 0.95, y: -20 }}
+                  transition={{ duration: 0.4, ease: "easeInOut" }}
+                  className={`
+      flex-1 p-6 rounded-xl text-center
+      shadow-[0_0_16px_#C4009F] border border-[#C4009F]
+      flex flex-col items-center justify-center gap-4
+      min-h-[270px] backdrop-brightness-110
+    `}
+                >
                   <img
                     src="/star.svg"
                     alt="estrela"
-                    className="self-center md:w-12 md:h-24"
+                    className="self-center md:w-24 h-16 w-16 md:h-24"
                   />
-                  <h2 className="font-bold text-lg">
-                    Platinum Partner - Advanced Delivery Partner
-                  </h2>
+                  <h2 className="font-bold text-lg">{selected?.title}</h2>
                   <img
-                    src="/monday.svg"
-                    alt="Monday.com"
-                    className="h-[56px] self-center md:w-48"
+                    src={selected?.img}
+                    alt={selected?.title}
+                    className={"self-center h-[36px] mt-8 md:h-[36px]"}
                   />
-                </div>
-              </div>
-              {/* Premio CX */}
-              <div
-                onClick={() => setSelectedPrize(2)}
-                className="flex-1 cursor-pointer p-6 rounded-xl brightness-150 shadow-[0_0_8px_#C4009F] backdrop-brightness-100 text-center transform scale-105 z-1000 mt-6 border border-[#C4009F]"
-              >
-                <div className="relative z-10 flex flex-col">
-                  <img
-                    src="/star.svg"
-                    alt="estrela"
-                    className="self-center md:w-12 md:h-24"
-                  />
-                  <h2 className="font-bold text-lg">
-                    Consultoria estratégica de 2025
-                  </h2>
-                  <img
-                    src="/consumidor-moderno.svg"
-                    alt="Consumidor Moderno"
-                    className="h-[56px] self-center md:w-48"
-                  />
-                </div>
-              </div>
-              {/* Parceiro do Ano */}
-              <div
-                onClick={() => setSelectedPrize(3)}
-                className="relative cursor-pointer flex-1 items-center backdrop-brightness-40  justify-center  p-6 flex flex-col gap-2 rounded-xl min-h-[270px] text-center overflow-hidden z-10 border border-[#C4009F]/30"
-              >
-                <div className="brightness-[2] relative z-10 flex flex-col">
-                  <img
-                    src="/star.svg"
-                    alt="estrela"
-                    className="self-center md:w-12 md:h-24"
-                  />
-                  <h2 className="font-bold text-lg">
-                    Parceiro do Ano América do Norte 2024
-                  </h2>
-                  <img
-                    src="/zendesk.svg"
-                    alt="zendesk"
-                    className="md:h-[48px] self-center md:w-36"
-                  />
-                </div>
-              </div>
+                </motion.div>
+              </AnimatePresence>
             </div>
 
-            {/* <DotPagination activeIndex={selectedPrize} total={3} /> */}
+            <DotPagination
+              activeIndex={selectedPrize - 1}
+              total={prizes.length}
+              onDotClick={(index) => setSelectedPrize(index + 1)}
+            />
           </div>
         </section>
 
@@ -387,7 +339,9 @@ export default function Page() {
             <BrandSlider brands={firstLineBrands} direction="ltr" />
             <BrandSlider brands={secondLineBrands} />
             <div className="self-center">
-              <PinkButton>Junte se a elas</PinkButton>
+              <Link href="/contato">
+                <PinkButton>Junte-se a elas</PinkButton>
+              </Link>
             </div>
           </div>
         </section>
@@ -409,7 +363,11 @@ export default function Page() {
 
           <div className="h-full w-full px-4 md:px-16 py-10">
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <BrandBox logoTitle="Aktie Now" brandLogoPath="/aktie-now.svg">
+              <BrandBox
+                companyWebsite="https://www.aktienow.com"
+                logoTitle="Aktie Now"
+                brandLogoPath="/aktie-now.svg"
+              >
                 <p className="md:text-[16px] min-h-[100px] text-white leading-6">
                   Consultoria estratégica em CX que transforma operações de
                   atendimento em ativos de negócio. Com expertise em Zendesk e
@@ -418,7 +376,11 @@ export default function Page() {
                 </p>
               </BrandBox>
 
-              <BrandBox logoTitle="Droz" brandLogoPath="/droz.svg">
+              <BrandBox
+                companyWebsite="https://meudroz.com/"
+                logoTitle="Droz"
+                brandLogoPath="/droz.svg"
+              >
                 <p className="md:text-[16px]  text-white leading-6">
                   Telefonia em nuvem que garante estabilidade, qualidade
                   superior de chamadas e flexibilidade de integração.
@@ -427,7 +389,11 @@ export default function Page() {
                 </p>
               </BrandBox>
 
-              <BrandBox logoTitle="Callwe" brandLogoPath="/callwe.svg">
+              <BrandBox
+                companyWebsite="https://callwe.io/"
+                logoTitle="Callwe"
+                brandLogoPath="/callwe.svg"
+              >
                 <p className="md:text-[16px] text-white leading-6">
                   Plataforma de automação de experiência do cliente que combina
                   IA e orquestração de canais. Simplifica processos de
@@ -436,7 +402,11 @@ export default function Page() {
                 </p>
               </BrandBox>
 
-              <BrandBox logoTitle="Workise" brandLogoPath="/workise.svg">
+              <BrandBox
+                companyWebsite="https://workise.com.br/"
+                logoTitle="Workise"
+                brandLogoPath="/workise.svg"
+              >
                 <p className="md:text-[16px] text-white leading-6">
                   Parceira em transformação digital especializada em automação
                   de fluxos de trabalho com monday.com. Simplifica processos,

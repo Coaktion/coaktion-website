@@ -1,57 +1,52 @@
-"use client";
-import MP from "../../../../public/mp-dark.png";
-import BR from "../../../../public/brazil.svg";
-import US from "../../../../public/usa.svg";
-
 import Image from "next/image";
-import React from "react";
 import { CountrySelect } from "../language-select";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
-import RandomLetterSwapForward from "../fancy/letter-swap-hover";
-import { SocialNav } from "./nav/social";
-import { Menu } from "./nav/menu";
-import { useLocale } from "next-intl";
 
 type Props = {
-  navHover: { socials: boolean; menu: boolean };
-  setNavHover: (hoverOptions: { socials: boolean; menu: boolean }) => void;
+  pathToResource: string;
 };
-
-export const Header = ({ navHover, setNavHover }: Props) => {
+export const Header = ({ pathToResource }: Props) => {
   const locale = useLocale();
+
+  const t = useTranslations("Texts");
   const options = [
-    { name: "PT", imgLink: BR },
-    { name: "EN", imgLink: US },
+    { name: "PT", imgLink: "/brazil.svg" },
+    { name: "EN", imgLink: "/usa.svg" },
   ];
-
   return (
-    <header className="flex justify-center md:h-[92px] w-full py-0 px-0 md:px-16 border-b border-gray-700/50">
-      <div className="w-full flex flex-wrap px-0 md:px-12 items-center justify-between">
-        {/* Logo And "Web Developer" */}
-        <div className="flex items-center space-x-4 min-w-[120px] md:min-w-[200px]">
-          <Link href="/mp">
+    <header className="w-full py-6 px-4 md:px-4 lg:px-32 bg-black">
+      <div className="max-w-full mx-auto flex items-center justify-between">
+        {/* Logo */}
+        <Link href={pathToResource}>
+          <div>
             <Image
-              src={MP}
-              alt="MP"
-              className="md:w-[110px] md:h-[110px] w-12 h-12 cursor-pointer"
+              src="/logo-co-aktion.svg"
+              alt="Logo"
+              className="md:h-10  h-6 w-auto"
+              width={120}
+              height={40}
             />
+          </div>
+        </Link>
+
+        {/* Links */}
+        <nav className="flex gap-6 items-center">
+          <a
+            href="https://coaktion.inhire.app/vagas"
+            target="_blank"
+            className="text-white text-sm md:text-[16px] hover:text-[#C4009F] transition duration-300 ease-out"
+          >
+            {t("navWorkWithUs")}
+          </a>
+          <Link
+            href="/contato"
+            className="text-white text-sm md:text-[16px] hover:text-[#C4009F] transition duration-300 ease-out"
+          >
+            {t("navContact")}
           </Link>
-          <RandomLetterSwapForward
-            className="text-gray-300 text-xs md:text-xl font-light"
-            label="Web Developer"
-          />
-        </div>
-
-        <div className="flex">
-          <Menu navHover={navHover} setNavHover={setNavHover} />
-          <SocialNav navHover={navHover} setNavHover={setNavHover} />
-        </div>
-
-        {/* Icons and Language Selector */}
-        <div className="flex flex-row items-center mr-6 md:mr-0 gap-4 md:gap-8 md:mt-0">
-          {/* Country Select */}
-          <CountrySelect value={locale} options={options} />
-        </div>
+          <CountrySelect options={options} value={locale} />
+        </nav>
       </div>
     </header>
   );

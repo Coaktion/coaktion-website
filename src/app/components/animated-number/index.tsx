@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState, useRef } from "react";
 import { animate, useInView } from "framer-motion";
 
@@ -26,23 +27,38 @@ export function AnimatedNumber({
   });
 
   const [displayValue, setDisplayValue] = useState(0);
+  const [shouldAnimate, setShouldAnimate] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY === 0) {
+        setShouldAnimate(false); // Reset trigger
+        requestAnimationFrame(() => {
+          setShouldAnimate(true); // Reactivate on next frame
+        });
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     let controls: ReturnType<typeof animate> | undefined;
 
-    if (isInView) {
+    if (isInView && shouldAnimate) {
       controls = animate(0, value, {
         duration,
         onUpdate(latest) {
           setDisplayValue(Math.round(latest));
         },
       });
-    } else {
+    } else if (!isInView || !shouldAnimate) {
       setDisplayValue(0);
     }
 
     return () => controls?.stop();
-  }, [isInView, value, duration]);
+  }, [isInView, value, duration, shouldAnimate]);
 
   return (
     <span ref={localRef} className={className}>

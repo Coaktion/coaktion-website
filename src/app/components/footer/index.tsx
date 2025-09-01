@@ -2,7 +2,7 @@
 export const StickFooter: React.FC = () => {
   return (
     <div className="bottom-0 w-full flex-col min-h-[320px] flex justify-center items-center bg-black mt-6 md:py-18 px-4 md:px-16 lg:px-24">
-      <div className="flex md:flex-row flex-col md:gap-0 items-center justify-evenly min-w-[70%]">
+      <div className="flex md:flex-row flex-col md:gap-24 items-center justify-evenly min-w-[70%]">
         <img
           src="/footer-logo.svg"
           alt="CoAktion"
@@ -17,16 +17,16 @@ export const StickFooter: React.FC = () => {
             </span>
           </div>
 
-          <div className="flex mt-4 gap-3">
+          <div className="flex mt-8 gap-3">
             <img src="/um.svg" alt="Brasil" />
             <span className="text-sm">
-              299 Alhambra Circle, St. 403 <br /> oral Gables, FL 33134
+              299 Alhambra Circle, St. 403 Coral Gables, FL 33134
             </span>
           </div>
         </div>
 
         <div className="flex flex-col mt-8 md:mt-0  gap-2">
-          <div className="flex gap-3">
+          <div className="flex mt-6 gap-3">
             <a href="https://www.linkedin.com/company/coaktion/">
               {" "}
               <img src="/instagram.svg" alt="Instagram" />
@@ -44,23 +44,22 @@ export const StickFooter: React.FC = () => {
               <img src="/youtube.svg" alt="YouTube" />
             </a>
           </div>
-
-          <a className="text-white mt-6 md:mt-0  font-semibold cursor-pointer hover:text-[#A30084]">
-            Politica e Privacidade
-          </a>
-          <a className="text-white mt-6 md:mt-0 font-semibold cursor-pointer hover:text-[#A30084]">
-            Política de Cookies
-          </a>
-          <a className="text-white mt-6 md:mt-0 font-semibold cursor-pointer hover:text-[#A30084]">
-            Termos e Condições
-          </a>
+          <div className="flex flex-col mt-2 justify-items-end gap-3">
+            <a className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
+              Politica e Privacidade
+            </a>
+            <a className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
+              Política de Cookies
+            </a>
+            <a className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
+              Termos e Condições
+            </a>
+          </div>
         </div>
       </div>
-
-      <span className="mt-12 text-sm text-white font-bold">
-        © {new Date().getFullYear()}All Rights Reserved By Coaktion
+      <span className="text-sm mt-12 text-white font-bold">
+        © {new Date().getFullYear()} All Rights Reserved By Coaktion
       </span>
-      <div className="flex flex-row space-x-6 sm:space-x-12 md:space-x-16 text-sm sm:text-lg"></div>
     </div>
   );
 };

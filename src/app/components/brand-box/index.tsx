@@ -6,6 +6,7 @@ type Props = {
   brandLogoPath: string;
   logoTitle: string;
   children: ReactNode;
+  companyWebsite: string;
 };
 
 const gradients = {
@@ -39,12 +40,18 @@ const gradients = {
     "bg-[#0f0f0f] relative overflow-hidden hover:before:opacity-100 before:opacity-0 before:absolute before:inset-0 before:transition-opacity before:duration-500 before:bg-[linear-gradient(to_bottom,transparent,transparent),repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_20px)] hover:bg-gradient-to-b hover:from-[#0f0f0f] hover:via-[#1a1a1a] hover:to-[#b30036]",
 } as any;
 
-export const BrandBox = ({ brandLogoPath, logoTitle, children }: Props) => {
+export const BrandBox = ({
+  brandLogoPath,
+  logoTitle,
+  children,
+  companyWebsite,
+}: Props) => {
   const isWorkise = brandLogoPath === "/workise.svg";
   const gradient = gradients[logoTitle] || "none";
 
   return (
     <div
+      onClick={() => window.open(companyWebsite, "_blank")}
       style={{
         backgroundImage: `  `,
         boxShadow: `0 8px 30px rgba(0, 0, 0, 0.3)`,

@@ -41,7 +41,7 @@ export const CountrySelect = ({ options, value }: Props): JSX.Element => {
         {flag && (
           <div className="flex items-center gap-2">
             <Image
-              className="rounded-full w-4 h-4 md:w-6 md:h-6"
+              className="rounded-full w-4 h-4 ml-2 md:ml-0 md:w-6 md:h-6"
               width={24}
               height={24}
               alt={flag.name}
