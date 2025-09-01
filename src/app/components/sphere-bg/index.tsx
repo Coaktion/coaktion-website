@@ -6,10 +6,9 @@ export const MovingSphereBackground = () => {
       className="
         absolute inset-0
         w-full
-        bg-[url('/esfera.png')]
+        bg-[url('/circle-sphere.png')]
         bg-center bg-no-repeat
-        bg-[length:240%]   
-        md:bg-[length:contain]
+        bg-[length:contain]
         pointer-events-none z-0"
       animate={{
         rotate: [0, 360],

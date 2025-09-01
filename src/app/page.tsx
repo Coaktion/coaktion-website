@@ -74,8 +74,6 @@ export default function Page() {
   ];
 
   const selected = prizes.find((p) => p.id === selectedPrize);
-  const others = prizes.filter((p) => p.id !== selectedPrize);
-  const ordered = [others[0], selected, others[1]];
 
   return (
     <>
@@ -87,7 +85,7 @@ export default function Page() {
           className="w-full
           bg-black 
            md:bg-[url('/stars-bg.png')] 
-          md:bg-cover md:bg-no-repeat md:bg-center h-[calc(100vh-9px)] relative bg-cover bg-no-repeat bg-center overflow-hidden flex md:items-center items-center justify-center"
+          md:bg-cover md:bg-no-repeat md:bg-center min-h-screen md:h-screen relative bg-cover bg-no-repeat bg-center overflow-hidden flex md:items-center items-center justify-center"
         >
           <MovingSphereBackground />
           <div className="relative z-10 py-7 flex flex-col items-center justify-center text-white">
