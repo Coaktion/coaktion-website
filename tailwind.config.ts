@@ -76,12 +76,18 @@ export default {
       },
       keyframes: {
         marquee: {
-          '0%': { transform: 'translateX(0%)' },
-          '100%': { transform: 'translateX(-50%)' },
+          "0%": { transform: "translateX(0%)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+        slideBg: {
+          "0%": { backgroundPosition: "0 0" },
+          "100%": { backgroundPosition: "100% 0" },
         },
       },
       animation: {
-        marquee: 'marquee 5s linear infinite',
+        marquee: "marquee 5s linear infinite",
+        slide: "slideBg 20s linear infinite",
+        "spin-slow": "spin 60s linear infinite",
       },
       borderRadius: {
         lg: "var(--radius)",

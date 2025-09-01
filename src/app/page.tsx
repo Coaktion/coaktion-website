@@ -12,13 +12,12 @@ import Image from "next/image";
 import BrandSlider from "./components/brand-slider";
 import { firstLineBrands, secondLineBrands } from "./utils/constants";
 import { PinkButton } from "./components/button";
-import Typewriter from "./components/fancy/typewritter";
 import { BrandBox } from "./components/brand-box";
 import VerticalCutReveal from "./components/fancy/vertical-reveal";
 import { StickFooter } from "./components/footer";
 import { CountrySelect } from "./components/language-select";
 import { useLocale, useTranslations } from "next-intl";
-import { DotPagination } from "./components/DotPagination";
+import { MovingSphereBackground } from "./components/sphere-bg";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
@@ -110,11 +109,10 @@ export default function Page() {
         </header>
 
         {/* Seção 1 */}
-        <section className="w-full h-[calc(100vh-9px)] flex items-center justify-center">
-          <div
-            className="text-white px-4 flex items-center justify-center flex-col md:px-8 w-full h-full bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: "url('/esfera.png')" }}
-          >
+        <section className="w-full h-[calc(100vh-9px)] relative overflow-hidden bg-black flex items-center justify-center">
+          <MovingSphereBackground />
+
+          <div className="relative z-10 flex flex-col items-center justify-center h-full text-white">
             <h1 className="text-[16px] mb-8 lg:text-4xl md:text-4xl">
               {t("h1")}
             </h1>
@@ -124,7 +122,7 @@ export default function Page() {
 
             <button
               className="
-        group inline-flex items-center gap-2
+        group inline-flex items-center mt-6 gap-2
         rounded-xl px-6 py-3 font-medium text-white
         bg-gradient-to-tr from-[#A30084] to-[#C4009F]
         shadow-lg shadow-[#A30084]/30
