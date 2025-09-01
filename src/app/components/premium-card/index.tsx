@@ -10,18 +10,17 @@ export const PremiumCard = ({
 }) => {
   return (
     <div
-      className={`flex w-full md:w-[30%] px-6  py-6 self-center md:gap-12 ${
+      className={`flex w-full md:w-[30%] px-6 py-6 items-center justify-center md:gap-12 ${
         highlighted ? "z-20 scale-105" : "z-10"
       } relative transition-transform duration-300`}
     >
-      <div>
-        <motion.div
-          key={prize?.id}
-          initial={{ opacity: 0, scale: 0.95, y: 20 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          exit={{ opacity: 0, scale: 0.95, y: -20 }}
-          transition={{ duration: 0.4, ease: "easeInOut" }}
-          className={`
+      <motion.div
+        key={prize?.id}
+        initial={{ opacity: 0, scale: 0.95, y: 20 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.95, y: -20 }}
+        transition={{ duration: 0.4, ease: "easeInOut" }}
+        className={`
       flex-1 p-6  text-center
       rounded-xl
      ${highlighted ? `shadow-[0_0_24px_#C4009F] border border-[#C4009F]` : "border border-[#C4009F]"} 
@@ -29,20 +28,19 @@ export const PremiumCard = ({
       min-h-[270px] backdrop-brightness-110
         ${highlighted ? "scale-105 z-50" : "z-10"}
     `}
-        >
-          <img
-            src="/star.svg"
-            alt="estrela"
-            className="self-center md:w-24 h-16 w-16 md:h-24"
-          />
-          <h2 className="font-bold text-lg">{prize?.title}</h2>
-          <img
-            src={prize?.img}
-            alt={prize?.title}
-            className={"self-center h-[36px] mt-8 md:h-[36px]"}
-          />
-        </motion.div>
-      </div>
+      >
+        <img
+          src="/star.svg"
+          alt="estrela"
+          className="self-center md:w-24 h-16 w-16 md:h-24"
+        />
+        <h2 className="font-bold text-lg">{prize?.title}</h2>
+        <img
+          src={prize?.img}
+          alt={prize?.title}
+          className={"self-center h-[36px] mt-8 md:h-[36px]"}
+        />
+      </motion.div>
     </div>
   );
 };
