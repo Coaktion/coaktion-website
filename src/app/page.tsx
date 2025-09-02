@@ -7,7 +7,7 @@ import {
   motion,
   useMotionValue,
 } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 import { AnimatedNumber } from "./components/animated-number";
 import Image from "next/image";
@@ -360,19 +360,6 @@ export default function Page() {
               </BrandBox>
 
               <BrandBox
-                companyWebsite="https://meudroz.com/"
-                logoTitle="Droz"
-                brandLogoPath="/droz.svg"
-              >
-                <p className="md:text-[16px]  text-white leading-6">
-                  Telefonia em nuvem que garante estabilidade, qualidade
-                  superior de chamadas e flexibilidade de integração.
-                  Proporciona conexões consistentes entre empresas e clientes em
-                  todos os pontos da jornada.
-                </p>
-              </BrandBox>
-
-              <BrandBox
                 companyWebsite="https://callwe.io/"
                 logoTitle="Callwe"
                 brandLogoPath="/callwe.svg"
@@ -382,6 +369,18 @@ export default function Page() {
                   IA e orquestração de canais. Simplifica processos de
                   atendimento, aumenta a produtividade e eleva a satisfação de
                   forma ágil e escalável.
+                </p>
+              </BrandBox>
+              <BrandBox
+                companyWebsite="https://meudroz.com/"
+                logoTitle="Droz"
+                brandLogoPath="/droz.svg"
+              >
+                <p className="md:text-[16px]  text-white leading-6">
+                  Telefonia em nuvem que garante estabilidade, qualidade
+                  superior de chamadas e flexibilidade de integração.
+                  Proporciona conexões consistentes entre empresas e clientes em
+                  todos os pontos da jornada.
                 </p>
               </BrandBox>
 
@@ -415,7 +414,13 @@ export default function Page() {
               </h3>
             </div>
           </h3>
-          <span>Formulário Get Response</span>
+
+          <div>
+            {React.createElement("getresponse-form", {
+              formId: "a4a91570-d2cd-4179-992d-13598f83db31",
+              e: "0",
+            })}
+          </div>
 
           <PinkButton>Quero começar a transformação</PinkButton>
         </section>

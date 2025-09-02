@@ -11,35 +11,22 @@ type Props = {
 
 const gradients = {
   "Aktie Now": `
-    bg-[#0f0f0f]
-    relative overflow-hidden
-    hover:before:opacity-100 before:opacity-0
-    before:absolute before:inset-0 before:transition-opacity before:duration-500
-    before:bg-[repeating-linear-gradient(135deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_2px,transparent_2px,transparent_10px)]
-    hover:bg-gradient-to-br hover:from-[#0f0f0f] hover:via-[#1a1a1a] hover:to-[#256d47]
+    bg-[url('/aktie-brand-bg.png')]
+    transition-all duration-400 hover:bg-[linear-gradient(155deg,_#0B0B0B_29.59%,_#7FD171_106.02%)]
   `,
   Callwe: `
-    bg-[#0f0f0f]
-    relative overflow-hidden
-    hover:before:opacity-100 before:opacity-0
-    before:absolute before:inset-0 before:transition-opacity before:duration-500
-    before:bg-[repeating-linear-gradient(90deg,rgba(255,255,255,0.03)_0px,rgba(255,255,255,0.03)_2px,transparent_2px,transparent_12px)]
-    hover:bg-gradient-to-b hover:from-[#0f0f0f] hover:via-[#1a1a1a] hover:to-[#c18700]
+    bg-[url('/callwe-brand-bg.png')]
+    transition-all duration-400 hover:bg-[linear-gradient(155deg,_#0B0B0B_29.59%,_#F6B018_106.02%)]
   `,
   Droz: `
-  bg-[#0f0f0f]
-  relative overflow-hidden
-  hover:before:opacity-100 before:opacity-0
-  before:absolute before:inset-0 before:z-0
-  before:transition-opacity before:duration-500
-  before:bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08)_1px,transparent_3px)]
-  before:bg-[length:30px_30px]
-  hover:bg-gradient-to-b hover:from-[#0f0f0f] hover:via-[#1a1a1a] hover:to-[#9f3bff]
+   bg-[url('/droz-brand-bg.png')]
+    transition-all duration-400 hover:bg-[linear-gradient(155deg,_#0B0B0B_29.59%,_#921AE8_106.02%)]
 `,
-  Workise:
-    "bg-[#0f0f0f] relative overflow-hidden hover:before:opacity-100 before:opacity-0 before:absolute before:inset-0 before:transition-opacity before:duration-500 before:bg-[linear-gradient(to_bottom,transparent,transparent),repeating-linear-gradient(45deg,rgba(255,255,255,0.05)_0px,rgba(255,255,255,0.05)_1px,transparent_1px,transparent_20px)] hover:bg-gradient-to-b hover:from-[#0f0f0f] hover:via-[#1a1a1a] hover:to-[#b30036]",
+  Workise: `
+   bg-[url('/workise-brand-bg.png')]
+    transition-all duration-400 hover:bg-[linear-gradient(155deg,_#0B0B0B_29.59%,_#EE3048_106.02%)]
+  `,
 } as any;
-
 export const BrandBox = ({
   brandLogoPath,
   logoTitle,
@@ -48,15 +35,14 @@ export const BrandBox = ({
 }: Props) => {
   const isWorkise = brandLogoPath === "/workise.svg";
   const gradient = gradients[logoTitle] || "none";
-
   return (
     <div
       onClick={() => window.open(companyWebsite, "_blank")}
       style={{
-        backgroundImage: `  `,
         boxShadow: `0 8px 30px rgba(0, 0, 0, 0.3)`,
+        backgroundBlendMode: "luminosity",
       }}
-      className={`w-full text-white transition-all gap-4 duration-500 ease-out ${gradient} shadow-lg hover:shadow-2xl cursor-pointer md:w-1/3 border border-white rounded-xl p-4 flex flex-col justify-between items-center text-center  bg-white/10 backdrop-blur-sm`}
+      className={`w-full text-white ${gradient} gap-4 shadow-lg hover:shadow-2xl cursor-pointer md:w-1/3 border border-white rounded-xl p-4 flex flex-col justify-between items-center text-center  bg-white/10 backdrop-blur-sm`}
     >
       <header className="w-full py-2 px-2 flex justify-between">
         <div className="flex flex-col justify-end">

@@ -16,9 +16,9 @@ export const Badge = () => {
         <path
           d="M26.5 36.2323L31 40.25L41.5 27.75"
           stroke="#A30084"
-          stroke-width="1.5"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
       </g>
     </svg>
