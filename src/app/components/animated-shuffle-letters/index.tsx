@@ -7,7 +7,7 @@ interface ScrambleTextProps {
   chainChars?: string;
 }
 
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#&-+";
+const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@&-+";
 
 export const ScrambleText: React.FC<ScrambleTextProps> = ({
   text,
