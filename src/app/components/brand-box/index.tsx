@@ -56,7 +56,7 @@ export const BrandBox = ({
         />
       </header>
       <main className="md:p-4">{children}</main>
-      <footer className="mt-6 self-start pt-4">
+      <footer className="self-start md:pl-4 md:pb-4 md:pt-0">
         <a className="place-self-start mt-6 hover:text-[#A30084] text-white cursor-pointer font-bold text-sm">
           Saiba mais
         </a>

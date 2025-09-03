@@ -27,6 +27,7 @@ import { Badge } from "./components/icons/badge";
 import { EarthIcon } from "./components/icons/earth-icon";
 import { PremiumCard } from "./components/premium-card";
 import { useIsMobile } from "./hooks/mobile";
+import { GetResponseForm } from "./components/get-response-form";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
@@ -108,7 +109,7 @@ export default function Page() {
               </h1>
             </div>
 
-            <Link href="/contato">
+            <Link href="#contact-form">
               <button
                 className="
         group inline-flex items-center  mt-12 md:mt-6 gap-2
@@ -206,7 +207,7 @@ export default function Page() {
                 de processos para gerar eficiência, escala e experiências que
                 impulsionam resultados.
               </p>
-              <Link href="/contato">
+              <Link href="#contact-form">
                 <button
                   className=" group inline-flex items-center mt-8 gap-2 rounded-xl px-6 py-3 font-medium text-white  bg-gradient-to-tr from-[#A30084] to-[#C4009F] shadow-lg shadow-[#A30084]/30 transition duration-300 ease-out hover:from-[#8A0072] hover:to-[#A30084] hover:shadow-[#A30084]/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#A30084]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                   aria-label="Comece agora"
@@ -322,7 +323,7 @@ export default function Page() {
             <BrandSlider brands={firstLineBrands} direction="ltr" />
             <BrandSlider brands={secondLineBrands} />
             <div className="self-center">
-              <Link href="/contato">
+              <Link href="#contact-form">
                 <PinkButton>Junte-se a elas</PinkButton>
               </Link>
             </div>
@@ -351,11 +352,9 @@ export default function Page() {
                 logoTitle="Aktie Now"
                 brandLogoPath="/aktie-now.svg"
               >
-                <p className="md:text-[16px] min-h-[100px] text-white leading-6">
-                  Consultoria estratégica em CX que transforma operações de
-                  atendimento em ativos de negócio. Com expertise em Zendesk e
-                  soluções complementares, eleva a experiência do cliente,
-                  otimiza processos e gera resultados em escala.
+                <p className="md:text-[16px] min-h-[100px] text-white leading-6 text-left">
+                  Consultoria estratégica em CX que acelera a transformação digital do atendimento.
+                  Com expertise em Zendesk e soluções complementares, transforma operações em ativos estratégicos e gera eficiência em escala.
                 </p>
               </BrandBox>
 
@@ -364,11 +363,11 @@ export default function Page() {
                 logoTitle="Callwe"
                 brandLogoPath="/callwe.svg"
               >
-                <p className="md:text-[16px] text-white leading-6">
-                  Plataforma de automação de experiência do cliente que combina
-                  IA e orquestração de canais. Simplifica processos de
-                  atendimento, aumenta a produtividade e eleva a satisfação de
-                  forma ágil e escalável.
+                <p className="md:text-[16px] text-white leading-6 text-left">
+                  Plataforma de telefonia em nuvem que assegura estabilidade, 
+                  alta qualidade de voz e integração flexível. 
+                  Garante conexões consistentes entre empresas e clientes em todos 
+                  os momentos da jornada.
                 </p>
               </BrandBox>
               <BrandBox
@@ -376,11 +375,10 @@ export default function Page() {
                 logoTitle="Droz"
                 brandLogoPath="/droz.svg"
               >
-                <p className="md:text-[16px]  text-white leading-6">
-                  Telefonia em nuvem que garante estabilidade, qualidade
-                  superior de chamadas e flexibilidade de integração.
-                  Proporciona conexões consistentes entre empresas e clientes em
-                  todos os pontos da jornada.
+                <p className="md:text-[16px]  text-white leading-6 text-left">
+                  Plataforma de automação de CX baseada em Inteligência Artificial
+                   que descomplica e potencializa interações. Simplifica processos,
+                   aumenta a produtividade e escala experiências de forma inteligente.
                 </p>
               </BrandBox>
 
@@ -389,11 +387,11 @@ export default function Page() {
                 logoTitle="Workise"
                 brandLogoPath="/workise.svg"
               >
-                <p className="md:text-[16px] text-white leading-6">
-                  Parceira em transformação digital especializada em automação
-                  de fluxos de trabalho com monday.com. Simplifica processos,
-                  integra times e gera eficiência operacional com tecnologia,
-                  método e inteligência aplicada.
+                <p className="md:text-[16px] text-white leading-6 text-left">
+                  Especialista em simplificar a transformação digital das operações
+                   com automação e integração de processos. 
+                   Conecta equipes, organiza fluxos e gera eficiência real para impulsionar
+                   resultados sustentáveis.
                 </p>
               </BrandBox>
             </div>
@@ -401,8 +399,8 @@ export default function Page() {
         </section>
 
         {/* Form get response */}
-        <section className="w-full md:py-14 py-10 gap-6 md:gap-8 flex-col px-4 md:px-8 flex items-center justify-center lg:px-16">
-          <h3 className="md:text-3xl text-[16px] text-[#0B0B0B] leading-snug">
+        <section id="contact-form" className="w-full md:py-14 py-10 gap-6 md:gap-8 flex-col px-4 md:px-8 flex items-center justify-center lg:px-16">
+          {/* <h3 className="md:text-3xl text-[16px] text-[#0B0B0B] leading-snug">
             Pronto para
             <span className="font-bold ml-2 mr-2 text-[#A30084]">
               simplificar a transformação
@@ -413,16 +411,13 @@ export default function Page() {
                 digital e gerar resultados reais?
               </h3>
             </div>
-          </h3>
+          </h3> */}
 
           <div>
-            {React.createElement("getresponse-form", {
-              formId: "a4a91570-d2cd-4179-992d-13598f83db31",
-              e: "0",
-            })}
+            <GetResponseForm />
           </div>
 
-          <PinkButton>Quero começar a transformação</PinkButton>
+          {/* <PinkButton>Quero começar a transformação</PinkButton> */}
         </section>
 
         {/* Footer */}

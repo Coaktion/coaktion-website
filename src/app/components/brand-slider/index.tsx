@@ -24,7 +24,7 @@ export default function BrandSlider({
     const to = direction === "rtl" ? -width : 0;
 
     const animation = animate(x, [from, to], {
-      duration: 20,
+      duration: 15,
       ease: "linear",
       repeat: Infinity,
     });
@@ -33,12 +33,12 @@ export default function BrandSlider({
   }, [width, direction]);
 
   return (
-    <div className="w-full overflow-hidden bg-white py-0 md:py-8">
-      <motion.div className="flex gap-8" ref={ref} style={{ x }}>
+    <div className="w-full overflow-hidden bg-white py-0 md:py-0">
+      <motion.div className="flex gap-100" ref={ref} style={{ x }}>
         {[...brands, ...brands].map((brand, index) => (
           <div
             key={index}
-            className="min-w-[160px] flex items-center justify-center"
+            className="min-w-[260px] flex items-center justify-center"
           >
             <img
               src={brand}
