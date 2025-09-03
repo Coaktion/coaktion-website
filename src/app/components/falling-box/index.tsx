@@ -5,9 +5,14 @@ import { motion, useAnimation, useInView } from "framer-motion";
 interface FallingRevealBoxProps {
   children: React.ReactNode;
   className?: string;
+  durationToDelay?: number;
 }
 
-export const FallingBox = ({ children, className }: FallingRevealBoxProps) => {
+export const FallingBox = ({
+  children,
+  className,
+  durationToDelay = 2.5,
+}: FallingRevealBoxProps) => {
   const ref = useRef(null);
   const controls = useAnimation();
   const [hasAnimated, setHasAnimated] = useState(false);
@@ -22,9 +27,9 @@ export const FallingBox = ({ children, className }: FallingRevealBoxProps) => {
         y: 0,
         opacity: 1,
         transition: {
-          duration: 2.5,
+          duration: durationToDelay,
           type: "spring",
-          bounce: 0.5,
+          bounce: 0.2,
         },
       });
       setHasAnimated(true);

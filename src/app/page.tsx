@@ -101,10 +101,10 @@ export default function Page() {
           <MovingSphereBackground />
           <div className="relative z-10 flex flex-col items-center text-white">
             <div className="flex flex-col py-8 mt-12 items-center text-center max-w-3xl px-4 md:px-0">
-              <h1 className="text-[16px] md:mb-0 mb-0 self-center lg:text-4xl md:text-[42px]">
+              <h1 className="text-[28px] md:mb-0 mb-0 self-center lg:text-4xl md:text-[42px]">
                 {t("h1")}
               </h1>
-              <h1 className="mt-4  text-[16px] text-sm md:text-[42px] font-bold">
+              <h1 className="mt-4 text-[28px] text-sm md:text-[42px] font-bold">
                 {t("h2")}
               </h1>
             </div>
@@ -113,7 +113,7 @@ export default function Page() {
               <button
                 className="
         group inline-flex items-center  mt-12 md:mt-6 gap-2
-        rounded-xl md:px-6 px-3 md:py-3 py-2 font-medium md:text-[18px] text-[16px]  text-white
+        rounded-3xl md:px-6 px-3 md:py-3 py-2 font-medium md:text-[18px] text-[16px]  text-white
         bg-gradient-to-tr from-[#A30084] to-[#C4009F]
         shadow-lg shadow-[#A30084]/30
         transition duration-300 ease-out
@@ -140,10 +140,10 @@ export default function Page() {
         {/* Seção 2 */}
         <section
           ref={numbersSectionRef}
-          className="w-full py-16 flex-col md:gap-12 items-center flex md:py-16 min-h-[360px] px-4 md:px-8 lg:px-16"
+          className="w-full py-16 flex-col md:gap-12 items-center flex md:py-14 min-h-[360px] px-4 md:px-8 lg:px-16"
         >
-          <div className="max-w-7xl mx-auto">
-            <h3 className="md:text-[42px] text-[16px] text-[#0B0B0B] leading-snug">
+          <div className="max-w-7xl mx-auto text-center">
+            <h3 className="md:text-[45px] text-[21px] text-[#0B0B0B] leading-snug">
               Transformar é a única forma
               <br />
               <span>
@@ -154,43 +154,66 @@ export default function Page() {
             </h3>
           </div>
 
-          <div className="w-full md:flex mt-8 md:mt-0">
-            <div className="md:w-[65%] flex flex-col gap-3 w-[100%]">
-              <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
-                <span className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
+          <div className="w-full md:flex mt-8 md:mt-0 justify-center gap-2">
+            <div className="md:w-[48%] flex flex-col gap-3 w-[100%]">
+              <FallingBox
+                className="w-full px-9 pt-5 pb-4 md:gap-6 flex-col items-center
+                md:flex md:flex-row rounded-3xl md:min-h-[70px] min-h-[220px]
+                bg-white shadow-sm md:pl-10 md:pr-3 md:py-5 border border-[#A30084]"
+                durationToDelay={3.5}
+              >
+                <span className="font-bold text-[60px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
                   72%
                 </span>
-                <p className="text-md md:text-[18px]">
+                <p className="text-md md:text-[18px] text-center md:text-left">
                   dos líderes ainda não veem um caminho claro para atingir os
                   objetivos da transformação digital.
+                  <br />
+                  <span className="italic">Microsoft</span>
                 </p>
               </FallingBox>
 
-              <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
-                <span className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
+              <FallingBox
+                className="w-full px-9 pt-5 pb-4 md:gap-6 flex-col items-center
+                md:flex md:flex-row rounded-3xl md:min-h-[70px] min-h-[220px]
+                bg-white shadow-sm md:pl-10 md:pr-3 md:py-5 border border-[#A30084]"
+                durationToDelay={4.5}
+              >
+                <span className="font-bold text-[60px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
                   76%
                 </span>
-                <p className="text-md md:text-[18px]">
+                <p className="text-md md:text-[18px] text-center md:text-left">
                   dos projetos falham por não colocar o cliente no centro.
+                  <br />
+                  <span className="italic">VML</span>
                 </p>
               </FallingBox>
 
-              <FallingBox className="w-full py-16 md:gap-6 flex-col items-center md:flex md:flex-row rounded-md md:min-h-[70px] min-h-[220px] bg-white shadow-sm px-4 md:py-3 border border-[#A30084]">
-                <span className="font-bold text-[42px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
+              <FallingBox
+                className="w-full px-9 pt-5 pb-4 md:gap-6 flex-col items-center
+                md:flex md:flex-row rounded-3xl md:min-h-[70px] min-h-[220px]
+                bg-white shadow-sm md:pl-10 md:pr-3 md:py-5 border border-[#A30084]"
+                durationToDelay={5}
+              >
+                <span className="font-bold text-[60px] text-[#A30084] md:self-start self-center md:ml-0 ml-[30%]">
                   61%
                 </span>
 
-                <p className="text-md md:text-[18px]">
+                <p className="text-md md:text-[18px] text-center md:text-left">
                   dos executivos afirmam que a falta de investimento em CX já
                   resultou em perda de competitividade.
+                  <br />
+                  <span className="italic">PwC</span>
                 </p>
               </FallingBox>
             </div>
 
-            <div className="md:w-[35%] w-full mt-6 md:mt-0 px-12 self-center">
+            <div className="md:w-[39%] w-full mt-6 md:mt-0 px-2">
               <p className="text-md md:text-[20px]">
-                É por isso que existimos: para que você não faça parte dessas
-                estatísticas.
+                É por isso que existimos:
+                <span className="font-bold">
+                  para que você não faça parte dessas estatísticas.
+                </span>
               </p>
 
               <br />
@@ -209,7 +232,7 @@ export default function Page() {
               </p>
               <Link href="#contact-form">
                 <button
-                  className=" group inline-flex items-center mt-8 gap-2 rounded-xl px-6 py-3 font-medium text-white  bg-gradient-to-tr from-[#A30084] to-[#C4009F] shadow-lg shadow-[#A30084]/30 transition duration-300 ease-out hover:from-[#8A0072] hover:to-[#A30084] hover:shadow-[#A30084]/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#A30084]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  className="group inline-flex items-center mt-8 gap-2 rounded-3xl px-6 py-3 font-medium text-white  bg-gradient-to-tr from-[#A30084] to-[#C4009F] shadow-lg shadow-[#A30084]/30 transition duration-300 ease-out hover:from-[#8A0072] hover:to-[#A30084] hover:shadow-[#A30084]/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#A30084]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
                   aria-label="Comece agora"
                 >
                   Descubra como
@@ -243,9 +266,9 @@ export default function Page() {
           }}
           ref={prizesSectionRef}
         >
-          <h1 className="md:text-3xl text-[16px] text-white">
-            Experiência e inovação ao{" "}
-            <span className="font-bold">redor do mundo</span>
+          <h1 className="md:text-[40px] text-[16px] text-white">
+            Experiência e inovação{" "}
+            <span className="font-bold">ao redor do mundo</span>
           </h1>
           <div className="md:grid md:grid-cols-3 flex flex-col w-full min-h-[90px]">
             {/* 1 */}
@@ -288,7 +311,7 @@ export default function Page() {
               </p>
             </div>
           </div>
-          <h1 className="md:text-3xl md:mt-16 mt-8 md:mb-0 mb-8 text-white">
+          <h1 className="md:text-[40px] md:mt-16 mt-8 md:mb-0 mb-8 text-white">
             <span className="font-bold text-[18px] md:text-[36px]">
               Reconhecidos e premiados
             </span>{" "}
@@ -316,7 +339,7 @@ export default function Page() {
 
         <section className="w-full py-16 px-4 md:px-8 lg:px-16">
           <div className="flex flex-col mx-auto">
-            <h1 className="md:text-3xl text-[22px] self-center text-[#A30084]">
+            <h1 className="md:text-[40px] text-[22px] self-center text-[#A30084] pb-7 pt-7">
               <span className="font-bold mr-2">Marcas de peso</span>
               que já evoluíram seu negócio
             </h1>
@@ -336,11 +359,11 @@ export default function Page() {
           style={{ backgroundImage: "url('/section-bg.png')" }}
         >
           <div className="flex flex-col h-full items-center gap-1">
-            <h1 className="md:text-3xl m-auto self-center place-self-center leading-5 text-white">
+            <h1 className="md:text-[40px] m-auto self-center place-self-center leading-5 text-white">
               Conheça a inteligência que conecta
             </h1>
 
-            <span className="font-bold md:text-3xl m-auto self-center place-self-center text-[#A30084]">
+            <span className="font-bold md:text-[40px] m-auto self-center place-self-center text-[#A30084]">
               nosso ecossistema
             </span>
           </div>
@@ -352,7 +375,7 @@ export default function Page() {
                 logoTitle="Aktie Now"
                 brandLogoPath="/aktie-now.svg"
               >
-                <p className="md:text-[16px] min-h-[100px] text-white leading-6 text-left">
+                <p className="md:text-[18px] min-h-[100px] text-white leading-6 text-left">
                   Consultoria estratégica em CX que acelera a transformação
                   digital do atendimento. Com expertise em Zendesk e soluções
                   complementares, transforma operações em ativos estratégicos e
@@ -365,7 +388,7 @@ export default function Page() {
                 logoTitle="Callwe"
                 brandLogoPath="/callwe.svg"
               >
-                <p className="md:text-[16px] text-white leading-6 text-left">
+                <p className="md:text-[18px] text-white leading-6 text-left">
                   Plataforma de telefonia em nuvem que assegura estabilidade,
                   alta qualidade de voz e integração flexível. Garante conexões
                   consistentes entre empresas e clientes em todos os momentos da
@@ -377,7 +400,7 @@ export default function Page() {
                 logoTitle="Droz"
                 brandLogoPath="/droz.svg"
               >
-                <p className="md:text-[16px]  text-white leading-6 text-left">
+                <p className="md:text-[18px] text-white leading-6 text-left">
                   Plataforma de automação de CX baseada em Inteligência
                   Artificial que descomplica e potencializa interações.
                   Simplifica processos, aumenta a produtividade e escala
@@ -390,7 +413,7 @@ export default function Page() {
                 logoTitle="Workise"
                 brandLogoPath="/workise.svg"
               >
-                <p className="md:text-[16px] text-white leading-6 text-left">
+                <p className="md:text-[18px] text-white leading-6 text-left">
                   Especialista em simplificar a transformação digital das
                   operações com automação e integração de processos. Conecta
                   equipes, organiza fluxos e gera eficiência real para
