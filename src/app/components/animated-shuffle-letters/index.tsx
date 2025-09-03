@@ -4,16 +4,15 @@ interface ScrambleTextProps {
   text: string;
   duration?: number; // em ms
   className?: string;
-  chainChars?: string;
 }
 
-const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#&-+";
+const CHARS =
+  "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789@&-+";
 
 export const ScrambleText: React.FC<ScrambleTextProps> = ({
   text,
   duration = 1800,
   className = "",
-  chainChars = CHARS,
 }) => {
   const [display, setDisplay] = useState(text);
   const [started, setStarted] = useState(false);
@@ -27,9 +26,9 @@ export const ScrambleText: React.FC<ScrambleTextProps> = ({
           setTimeout(() => setStarted(true), 10); // Small delay to restart
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.4 },
     );
-    
+
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
@@ -43,12 +42,12 @@ export const ScrambleText: React.FC<ScrambleTextProps> = ({
         setDisplay(
           text
             .split("")
-            .map((char, i) =>
+            .map((char) =>
               Math.random() > frame / totalFrames
                 ? CHARS[Math.floor(Math.random() * CHARS.length)]
-                : char
+                : char,
             )
-            .join("")
+            .join(""),
         );
         frame++;
       } else {

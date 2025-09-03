@@ -85,11 +85,11 @@ export default function Page() {
         >
           <MovingSphereBackground />
           <div className="relative z-10 flex flex-col items-center text-white">
-            <div className="flex flex-col py-8 mt-12 items-center text-center max-w-3xl px-4 md:px-0">
-              <h1 className="text-[28px] md:mb-0 mb-0 self-center lg:text-4xl md:text-[42px]">
+            <div className="flex flex-col py-8 mt-12 items-center text-center max-w-5xl px-4 md:px-0">
+              <h1 className="text-[28px] md:mb-0 mb-0 self-center md:text-[50px]">
                 {t("h1")}
               </h1>
-              <h1 className="mt-4 text-[28px] text-sm md:text-[42px] font-bold">
+              <h1 className="text-[26px] md:text-[50px] font-bold">
                 {t("h2")}
               </h1>
             </div>
@@ -261,10 +261,7 @@ export default function Page() {
               <OfficeIcon />
               <p className="md:text-[24px] text-[24px]">Escritórios no</p>
               <p className="font-bold text-white md:text-[30px] text-[20px] mt-2">
-                <ScrambleText
-                  duration={1200}
-                  text="Brasil e Estados Unidos"
-                />
+                <ScrambleText duration={1200} text="Brasil e Estados Unidos" />
               </p>
             </div>
 
@@ -273,22 +270,18 @@ export default function Page() {
               <EarthIcon />
               <p className="md:text-[24px] text-[24px]">Projetos em</p>
               <p className="font-bold text-white md:text-[35px] text-[20px] mt-4">
-                <ScrambleText
-                  duration={1800}
-                  text="+ 11 países"
-                />
+                <ScrambleText duration={1800} text="+ 11 países" />
               </p>
             </div>
 
             {/* 3 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <Badge />
-              <p className="md:text-[24px] text-[24px]">Das 100 maiores marcas</p>
+              <p className="md:text-[24px] text-[24px]">
+                Das 100 maiores marcas
+              </p>
               <p className="font-bold text-white md:text-[30px] text-[20px] mt-2">
-                <ScrambleText
-                  duration={2400}
-                  text="15 estão com a gente"
-                />
+                <ScrambleText duration={2400} text="15 estão com a gente" />
               </p>
             </div>
           </div>
@@ -394,7 +387,7 @@ export default function Page() {
         {/* Form get response */}
         <section
           id="contact-form"
-          className="w-full md:py-14 py-10 gap-6 md:gap-8 flex-col px-4 md:px-8 flex items-center justify-center lg:px-16"
+          className="w-full md:py-8 py-0 gap-6 md:gap-8 flex-col px-4 md:px-8 flex items-center justify-center lg:px-16"
         >
           <div>
             <GetResponseForm />
