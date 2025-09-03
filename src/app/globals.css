@@ -2,7 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
+@import "keen-slider/keen-slider.min.css";
+
+  @layer utilities {
   .debug {
     border: solid 1px red;
   }

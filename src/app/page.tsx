@@ -24,17 +24,15 @@ import { PremiumCard } from "./components/premium-card";
 import { useIsMobile } from "./hooks/mobile";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { GetResponseForm } from "./components/get-response-form";
+import { PremiumCarousel } from "./components/PrizeCarrousel";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
-  const [selectedPrize, setSelectedPrize] = useState(2);
-  const [direction, setDirection] = useState<"left" | "right">("right");
   const numbersSectionRef = useRef(null);
   const prizesSectionRef = useRef(null);
 
   const XTranslation = useMotionValue(0);
   const t = useTranslations("Texts");
-  const isMobile = useIsMobile();
 
   useEffect(() => {
     let controls;
@@ -52,9 +50,14 @@ export default function Page() {
 
   const prizes = [
     {
-      id: 1,
+      id: 0,
       title: "Platinum Partner - Advanced Delivery Partner",
       img: "/monday.svg",
+    },
+    {
+      id: 1,
+      title: "Parceiro do Ano América do Norte 2024",
+      img: "/zendesk.svg",
     },
     {
       id: 2,
@@ -63,25 +66,10 @@ export default function Page() {
     },
     {
       id: 3,
-      title: "Parceiro do Ano América do Norte 2024",
-      img: "/zendesk.svg",
-    },
-
-    {
-      id: 4,
       title: "Líder em Gerenciamento e Relatórios de Projetos Adaptativos",
       img: "/gartner.svg",
     },
   ];
-  const showPrizes = isMobile ? 1 : 3;
-  const reorderedPrizes = (() => {
-    const selected = prizes.find((p) => p.id === selectedPrize);
-    if (!selected) return prizes.slice(0, showPrizes);
-    const otherPrizes = prizes.filter((p) => p.id !== selectedPrize);
-    if (isMobile) return [selected];
-    return [otherPrizes[0], selected, otherPrizes[1]].filter(Boolean);
-  })();
-  console.log(isMobile, reorderedPrizes);
   return (
     <>
       <main className="bg-white text-gray-800 ">
@@ -313,98 +301,7 @@ export default function Page() {
             </span>{" "}
             globalmente
           </h1>
-
-          <div className="flex items-center justify-center md:flex-row gap-12">
-            {reorderedPrizes.map((prize) => {
-              const isSelected = prize.id === selectedPrize;
-
-              return isSelected ? (
-                <AnimatePresence mode="wait" key={prize.id}>
-                  <PremiumCard
-                    key={prize.id}
-                    prize={prize}
-                    highlighted
-                    setSelectedPrize={setSelectedPrize}
-                    selectedPrize={selectedPrize}
-                    prizes={prizes}
-                    setDirection={setDirection}
-                    direction={direction}
-                  />
-                </AnimatePresence>
-              ) : (
-                <PremiumCard
-                  key={prize.id}
-                  prize={prize}
-                  highlighted={false}
-                  setDirection={setDirection}
-                  setSelectedPrize={setSelectedPrize}
-                  selectedPrize={selectedPrize}
-                  prizes={prizes}
-                />
-              );
-            })}
-          </div>
-          {!isMobile && (
-            <DotPagination
-              activeIndex={selectedPrize - 1}
-              total={prizes.length}
-              onDotClick={(index) => {
-                setDirection(index > selectedPrize ? "right" : "left");
-                setSelectedPrize(index + 1);
-              }}
-            />
-          )}
-          {isMobile && (
-            <div className="flex gap-12 flex-row mt-4 justify-center text-white">
-              <ArrowLeft
-                className={
-                  selectedPrize === 1
-                    ? "opacity-30 cursor-not-allowed"
-                    : "cursor-pointer"
-                }
-                onClick={() => {
-                  if (selectedPrize > 1) {
-                    setDirection("left");
-                    setSelectedPrize(selectedPrize - 1);
-                  }
-                }}
-              />
-              <ArrowRight
-                className={
-                  selectedPrize === prizes.length
-                    ? "opacity-30 cursor-not-allowed"
-                    : "cursor-pointer"
-                }
-                onClick={() => {
-                  if (selectedPrize < prizes.length) {
-                    setDirection("right");
-                    setSelectedPrize(selectedPrize + 1);
-                  }
-                }}
-              />
-            </div>
-          )}
-
-          {/* <div className="flex gap-12 flex-col w-full">
-            <div className="flex items-center justify-center md:flex-row">
-              {reorderedPrizes.map((prize) => (
-                <PremiumCard
-                  key={prize.id}
-                  prize={prize}
-                  highlighted={prize.id === selectedPrize}
-                />
-              ))}
-            </div>
-
-            <DotPagination
-              activeIndex={selectedPrize - 1}
-              total={prizes.length}
-              onDotClick={(index) => {
-                setDirection(index > selectedPrize ? "right" : "left");
-                setSelectedPrize(index + 1);
-              }}
-            />
-          </div> */}
+          <PremiumCarousel prizes={prizes} />
         </section>
 
         <section className="w-full py-16 px-4 md:px-8 lg:px-16">
