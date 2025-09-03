@@ -353,8 +353,10 @@ export default function Page() {
                 brandLogoPath="/aktie-now.svg"
               >
                 <p className="md:text-[16px] min-h-[100px] text-white leading-6 text-left">
-                  Consultoria estratégica em CX que acelera a transformação digital do atendimento.
-                  Com expertise em Zendesk e soluções complementares, transforma operações em ativos estratégicos e gera eficiência em escala.
+                  Consultoria estratégica em CX que acelera a transformação
+                  digital do atendimento. Com expertise em Zendesk e soluções
+                  complementares, transforma operações em ativos estratégicos e
+                  gera eficiência em escala.
                 </p>
               </BrandBox>
 
@@ -364,10 +366,10 @@ export default function Page() {
                 brandLogoPath="/callwe.svg"
               >
                 <p className="md:text-[16px] text-white leading-6 text-left">
-                  Plataforma de telefonia em nuvem que assegura estabilidade, 
-                  alta qualidade de voz e integração flexível. 
-                  Garante conexões consistentes entre empresas e clientes em todos 
-                  os momentos da jornada.
+                  Plataforma de telefonia em nuvem que assegura estabilidade,
+                  alta qualidade de voz e integração flexível. Garante conexões
+                  consistentes entre empresas e clientes em todos os momentos da
+                  jornada.
                 </p>
               </BrandBox>
               <BrandBox
@@ -376,9 +378,10 @@ export default function Page() {
                 brandLogoPath="/droz.svg"
               >
                 <p className="md:text-[16px]  text-white leading-6 text-left">
-                  Plataforma de automação de CX baseada em Inteligência Artificial
-                   que descomplica e potencializa interações. Simplifica processos,
-                   aumenta a produtividade e escala experiências de forma inteligente.
+                  Plataforma de automação de CX baseada em Inteligência
+                  Artificial que descomplica e potencializa interações.
+                  Simplifica processos, aumenta a produtividade e escala
+                  experiências de forma inteligente.
                 </p>
               </BrandBox>
 
@@ -388,10 +391,10 @@ export default function Page() {
                 brandLogoPath="/workise.svg"
               >
                 <p className="md:text-[16px] text-white leading-6 text-left">
-                  Especialista em simplificar a transformação digital das operações
-                   com automação e integração de processos. 
-                   Conecta equipes, organiza fluxos e gera eficiência real para impulsionar
-                   resultados sustentáveis.
+                  Especialista em simplificar a transformação digital das
+                  operações com automação e integração de processos. Conecta
+                  equipes, organiza fluxos e gera eficiência real para
+                  impulsionar resultados sustentáveis.
                 </p>
               </BrandBox>
             </div>
@@ -399,7 +402,10 @@ export default function Page() {
         </section>
 
         {/* Form get response */}
-        <section id="contact-form" className="w-full md:py-14 py-10 gap-6 md:gap-8 flex-col px-4 md:px-8 flex items-center justify-center lg:px-16">
+        <section
+          id="contact-form"
+          className="w-full md:py-14 py-10 gap-6 md:gap-8 flex-col px-4 md:px-8 flex items-center justify-center lg:px-16"
+        >
           {/* <h3 className="md:text-3xl text-[16px] text-[#0B0B0B] leading-snug">
             Pronto para
             <span className="font-bold ml-2 mr-2 text-[#A30084]">
