@@ -28,6 +28,7 @@ import { EarthIcon } from "./components/icons/earth-icon";
 import { PremiumCard } from "./components/premium-card";
 import { useIsMobile } from "./hooks/mobile";
 import { GetResponseForm } from "./components/get-response-form";
+import { ScrambleText } from "./components/animated-shuffle-letters";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
@@ -154,7 +155,7 @@ export default function Page() {
             </h3>
           </div>
 
-          <div className="w-full md:flex mt-8 md:mt-0 justify-center gap-2">
+          <div className="w-full md:flex mt-8 md:mt-0 justify-center gap-16">
             <div className="md:w-[48%] flex flex-col gap-3 w-[100%]">
               <FallingBox
                 className="w-full px-9 pt-5 pb-4 md:gap-6 flex-col items-center
@@ -208,7 +209,7 @@ export default function Page() {
               </FallingBox>
             </div>
 
-            <div className="md:w-[39%] w-full mt-6 md:mt-0 px-2">
+            <div className="md:w-[33%] w-full mt-6 md:mt-0 px-2">
               <p className="text-md md:text-[20px]">
                 É por isso que existimos:
                 <span className="font-bold">
@@ -266,7 +267,7 @@ export default function Page() {
           }}
           ref={prizesSectionRef}
         >
-          <h1 className="md:text-[40px] text-[16px] text-white">
+          <h1 className="md:text-[40px] text-[24px] text-white text-center">
             Experiência e inovação{" "}
             <span className="font-bold">ao redor do mundo</span>
           </h1>
@@ -274,40 +275,36 @@ export default function Page() {
             {/* 1 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <OfficeIcon />
-              <p className="text-md">Escritórios no</p>
+              <p className="md:text-[24px] text-[24px]">Escritórios no</p>
               <p className="font-bold text-white md:text-[30px] text-[20px] mt-2">
-                Brasil e Estados <br /> Unidos
+                <ScrambleText
+                  duration={1200}
+                  text="Brasil e Estados Unidos"
+                />
               </p>
             </div>
 
             {/* 2 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <EarthIcon />
-              <p>Projetos em</p>
+              <p className="md:text-[24px] text-[24px]">Projetos em</p>
               <p className="font-bold text-white md:text-[35px] text-[20px] mt-4">
-                + de{" "}
-                <AnimatedNumber
-                  className="font-extralight text-white"
-                  triggerRef={prizesSectionRef}
-                  duration={4}
-                  value={11}
-                />{" "}
-                países
+                <ScrambleText
+                  duration={1800}
+                  text="+ 11 países"
+                />
               </p>
             </div>
 
             {/* 3 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <Badge />
-              <p>Das 100 maiores marcas</p>
+              <p className="md:text-[24px] text-[24px]">Das 100 maiores marcas</p>
               <p className="font-bold text-white md:text-[30px] text-[20px] mt-2">
-                <AnimatedNumber
-                  className="font-extralight text-white"
-                  triggerRef={prizesSectionRef}
-                  duration={4}
-                  value={15}
-                />{" "}
-                estão com <br /> a gente
+                <ScrambleText
+                  duration={2400}
+                  text="15 estão com a gente"
+                />
               </p>
             </div>
           </div>
@@ -355,16 +352,15 @@ export default function Page() {
 
         {/* Seção 5 */}
         <section
-          className="w-full py-16 px-4 md:px-8 md:min-h-[620px] lg:px-16"
+          className="w-full py-16 px-4 md:px-8 md:min-h-[620px] lg:px-16 bg-cover bg-no-repeat md:bg-center"
           style={{ backgroundImage: "url('/section-bg.png')" }}
         >
           <div className="flex flex-col h-full items-center gap-1">
-            <h1 className="md:text-[40px] m-auto self-center place-self-center leading-5 text-white">
-              Conheça a inteligência que conecta
-            </h1>
-
-            <span className="font-bold md:text-[40px] m-auto self-center place-self-center text-[#A30084]">
-              nosso ecossistema
+            <span className="md:text-[40px] text-[24px] m-auto self-center place-self-center text-center leading-5 text-white leading-8">
+              Conheça a inteligência que conecta nosso
+            </span>
+            <span className="font-bold md:text-[40px] text-[24px] m-auto self-center place-self-center text-[#A30084] leading-0">
+              ecossistema
             </span>
           </div>
 
@@ -374,6 +370,7 @@ export default function Page() {
                 companyWebsite="https://www.aktienow.com"
                 logoTitle="Aktie Now"
                 brandLogoPath="/aktie-now.svg"
+                imageClasses="mt-[6px] mr-[10px]"
               >
                 <p className="md:text-[18px] min-h-[100px] text-white leading-6 text-left">
                   Consultoria estratégica em CX que acelera a transformação
@@ -387,6 +384,7 @@ export default function Page() {
                 companyWebsite="https://callwe.io/"
                 logoTitle="Callwe"
                 brandLogoPath="/callwe.svg"
+                imageClasses="mt-[6px] mr-[20px]"
               >
                 <p className="md:text-[18px] text-white leading-6 text-left">
                   Plataforma de telefonia em nuvem que assegura estabilidade,
@@ -399,6 +397,7 @@ export default function Page() {
                 companyWebsite="https://meudroz.com/"
                 logoTitle="Droz"
                 brandLogoPath="/droz.svg"
+                imageClasses="mt-[10px] mr-[10px]"
               >
                 <p className="md:text-[18px] text-white leading-6 text-left">
                   Plataforma de automação de CX baseada em Inteligência
@@ -412,6 +411,7 @@ export default function Page() {
                 companyWebsite="https://workise.com.br/"
                 logoTitle="Workise"
                 brandLogoPath="/workise.svg"
+                imageClasses="mt-3 md:w-16 mt-[18px] mr-[10px]"
               >
                 <p className="md:text-[18px] text-white leading-6 text-left">
                   Especialista em simplificar a transformação digital das
@@ -429,24 +429,9 @@ export default function Page() {
           id="contact-form"
           className="w-full md:py-14 py-10 gap-6 md:gap-8 flex-col px-4 md:px-8 flex items-center justify-center lg:px-16"
         >
-          {/* <h3 className="md:text-3xl text-[16px] text-[#0B0B0B] leading-snug">
-            Pronto para
-            <span className="font-bold ml-2 mr-2 text-[#A30084]">
-              simplificar a transformação
-            </span>
-            <br />
-            <div className="items-center justify-center flex">
-              <h3 className="md:text-3xl text-[16px] self-center justify-center mx-auto text-[#0B0B0B] leading-snug">
-                digital e gerar resultados reais?
-              </h3>
-            </div>
-          </h3> */}
-
           <div>
             <GetResponseForm />
           </div>
-
-          {/* <PinkButton>Quero começar a transformação</PinkButton> */}
         </section>
 
         {/* Footer */}

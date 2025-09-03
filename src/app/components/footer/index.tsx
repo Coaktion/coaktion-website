@@ -59,7 +59,6 @@ export const StickFooter: React.FC = () => {
         </div>
       </div>
       <span className="text-sm mt-12 text-white font-bold">
-        © {new Date().getFullYear()} All Rights Reserved By Coaktion
       </span>
     </div>
   );

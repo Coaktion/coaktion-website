@@ -46,7 +46,7 @@ export const Header = ({ pathToResource }: Props) => {
           >
             {t("navContact")}
           </Link>
-          <CountrySelect options={options} value={locale} />
+          {/* <CountrySelect options={options} value={locale} /> */}
         </nav>
       </div>
     </header>
