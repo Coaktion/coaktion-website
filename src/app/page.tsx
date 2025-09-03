@@ -1,12 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
 "use client";
-import {
-  animate,
-  AnimatePresence,
-  motion,
-  useMotionValue,
-} from "framer-motion";
+import { animate, useMotionValue, AnimatePresence } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
 import { AnimatedNumber } from "./components/animated-number";
@@ -27,11 +22,12 @@ import { Badge } from "./components/icons/badge";
 import { EarthIcon } from "./components/icons/earth-icon";
 import { PremiumCard } from "./components/premium-card";
 import { useIsMobile } from "./hooks/mobile";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
   const [selectedPrize, setSelectedPrize] = useState(2);
-
+  const [direction, setDirection] = useState<"left" | "right">("right");
   const numbersSectionRef = useRef(null);
   const prizesSectionRef = useRef(null);
 
@@ -294,7 +290,78 @@ export default function Page() {
             globalmente
           </h1>
 
-          <div className="flex gap-12 flex-col w-full">
+          <div className="flex items-center justify-center md:flex-row gap-12">
+            {reorderedPrizes.map((prize) => {
+              const isSelected = prize.id === selectedPrize;
+
+              return isSelected ? (
+                <AnimatePresence mode="wait" key={prize.id}>
+                  <PremiumCard
+                    key={prize.id}
+                    prize={prize}
+                    highlighted
+                    setSelectedPrize={setSelectedPrize}
+                    selectedPrize={selectedPrize}
+                    prizes={prizes}
+                    setDirection={setDirection}
+                    direction={direction}
+                  />
+                </AnimatePresence>
+              ) : (
+                <PremiumCard
+                  key={prize.id}
+                  prize={prize}
+                  highlighted={false}
+                  setDirection={setDirection}
+                  setSelectedPrize={setSelectedPrize}
+                  selectedPrize={selectedPrize}
+                  prizes={prizes}
+                />
+              );
+            })}
+          </div>
+          {!isMobile && (
+            <DotPagination
+              activeIndex={selectedPrize - 1}
+              total={prizes.length}
+              onDotClick={(index) => {
+                setDirection(index > selectedPrize ? "right" : "left");
+                setSelectedPrize(index + 1);
+              }}
+            />
+          )}
+          {isMobile && (
+            <div className="flex gap-12 flex-row mt-4 justify-center text-white">
+              <ArrowLeft
+                className={
+                  selectedPrize === 1
+                    ? "opacity-30 cursor-not-allowed"
+                    : "cursor-pointer"
+                }
+                onClick={() => {
+                  if (selectedPrize > 1) {
+                    setDirection("left");
+                    setSelectedPrize(selectedPrize - 1);
+                  }
+                }}
+              />
+              <ArrowRight
+                className={
+                  selectedPrize === prizes.length
+                    ? "opacity-30 cursor-not-allowed"
+                    : "cursor-pointer"
+                }
+                onClick={() => {
+                  if (selectedPrize < prizes.length) {
+                    setDirection("right");
+                    setSelectedPrize(selectedPrize + 1);
+                  }
+                }}
+              />
+            </div>
+          )}
+
+          {/* <div className="flex gap-12 flex-col w-full">
             <div className="flex items-center justify-center md:flex-row">
               {reorderedPrizes.map((prize) => (
                 <PremiumCard
@@ -308,9 +375,12 @@ export default function Page() {
             <DotPagination
               activeIndex={selectedPrize - 1}
               total={prizes.length}
-              onDotClick={(index) => setSelectedPrize(index + 1)}
+              onDotClick={(index) => {
+                setDirection(index > selectedPrize ? "right" : "left");
+                setSelectedPrize(index + 1);
+              }}
             />
-          </div>
+          </div> */}
         </section>
 
         <section className="w-full py-16 px-4 md:px-8 lg:px-16">
