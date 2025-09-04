@@ -61,19 +61,18 @@ export const PremiumCarousel = ({ prizes }: { prizes: any[] }) => {
           </div>
         ))}
       </div>
-      {!isMobile && (
-        <div className="flex justify-center mt-4 gap-4">
-          {prizes.map((_, idx) => (
-            <button
-              key={idx}
-              className={`w-4 h-4 rounded-full ${
-                prizes[idx].id === centerPrizeId ? "bg-white" : "bg-white/30"
-              }`}
-              onClick={() => instanceRef.current?.moveToIdx(idx)}
-            />
-          ))}
-        </div>
-      )}
+
+      <div className="flex justify-center mt-4 gap-4">
+        {prizes.map((_, idx) => (
+          <button
+            key={idx}
+            className={`w-4 h-4 rounded-full ${
+              prizes[idx].id === centerPrizeId ? "bg-white" : "bg-white/30"
+            }`}
+            onClick={() => instanceRef.current?.moveToIdx(idx)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

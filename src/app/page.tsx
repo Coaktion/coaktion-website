@@ -4,7 +4,6 @@
 import { animate, useMotionValue, AnimatePresence } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
 import useMeasure from "react-use-measure";
-import { AnimatedNumber } from "./components/animated-number";
 import Image from "next/image";
 import BrandSlider from "./components/brand-slider";
 import { firstLineBrands, secondLineBrands } from "./utils/constants";
@@ -13,25 +12,23 @@ import { BrandBox } from "./components/brand-box";
 import { StickFooter } from "./components/footer";
 import { useTranslations } from "next-intl";
 import { MovingSphereBackground } from "./components/sphere-bg";
-import { DotPagination } from "./components/DotPagination";
 import { FallingBox } from "./components/falling-box";
 import { Header } from "./components/header";
 import Link from "next/link";
 import { OfficeIcon } from "./components/icons/office-icon";
 import { Badge } from "./components/icons/badge";
 import { EarthIcon } from "./components/icons/earth-icon";
-import { PremiumCard } from "./components/premium-card";
 import { useIsMobile } from "./hooks/mobile";
-import { ArrowLeft, ArrowRight } from "lucide-react";
 import { GetResponseForm } from "./components/get-response-form";
 import { PremiumCarousel } from "./components/PrizeCarrousel";
 import { ScrambleText } from "./components/animated-shuffle-letters";
+import { BrandCarrousel } from "./components/BrandCarrousel";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
   const numbersSectionRef = useRef(null);
   const prizesSectionRef = useRef(null);
-
+  const isMobile = useIsMobile();
   const XTranslation = useMotionValue(0);
   const t = useTranslations("Texts");
 
@@ -326,60 +323,66 @@ export default function Page() {
 
           <div className="h-full w-full px-4 md:px-16 py-10">
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <BrandBox
-                companyWebsite="https://www.aktienow.com"
-                logoTitle="Aktie Now"
-                brandLogoPath="/aktie-now.svg"
-                imageClasses="mt-[6px] mr-[10px]"
-              >
-                <p className="md:text-[18px] min-h-[100px] text-white leading-6 text-left">
-                  Consultoria estratégica em CX que acelera a transformação
-                  digital do atendimento. Com expertise em Zendesk e soluções
-                  complementares, transforma operações em ativos estratégicos e
-                  gera eficiência em escala.
-                </p>
-              </BrandBox>
+              {isMobile ? (
+                <BrandCarrousel />
+              ) : (
+                <>
+                  <BrandBox
+                    companyWebsite="https://www.aktienow.com"
+                    logoTitle="Aktie Now"
+                    brandLogoPath="/aktie-now.svg"
+                    imageClasses="mt-[6px] mr-[10px]"
+                  >
+                    <p className="md:text-[18px] min-h-[100px] text-white leading-6 text-left">
+                      Consultoria estratégica em CX que acelera a transformação
+                      digital do atendimento. Com expertise em Zendesk e
+                      soluções complementares, transforma operações em ativos
+                      estratégicos e gera eficiência em escala.
+                    </p>
+                  </BrandBox>
 
-              <BrandBox
-                companyWebsite="https://callwe.io/"
-                logoTitle="Callwe"
-                brandLogoPath="/callwe.svg"
-                imageClasses="mt-[6px] mr-[20px]"
-              >
-                <p className="md:text-[18px] text-white leading-6 text-left">
-                  Plataforma de telefonia em nuvem que assegura estabilidade,
-                  alta qualidade de voz e integração flexível. Garante conexões
-                  consistentes entre empresas e clientes em todos os momentos da
-                  jornada.
-                </p>
-              </BrandBox>
-              <BrandBox
-                companyWebsite="https://meudroz.com/"
-                logoTitle="Droz"
-                brandLogoPath="/droz.svg"
-                imageClasses="mt-[10px] mr-[10px]"
-              >
-                <p className="md:text-[18px] text-white leading-6 text-left">
-                  Plataforma de automação de CX baseada em Inteligência
-                  Artificial que descomplica e potencializa interações.
-                  Simplifica processos, aumenta a produtividade e escala
-                  experiências de forma inteligente.
-                </p>
-              </BrandBox>
+                  <BrandBox
+                    companyWebsite="https://callwe.io/"
+                    logoTitle="Callwe"
+                    brandLogoPath="/callwe.svg"
+                    imageClasses="mt-[6px] mr-[20px]"
+                  >
+                    <p className="md:text-[18px] text-white leading-6 text-left">
+                      Plataforma de telefonia em nuvem que assegura
+                      estabilidade, alta qualidade de voz e integração flexível.
+                      Garante conexões consistentes entre empresas e clientes em
+                      todos os momentos da jornada.
+                    </p>
+                  </BrandBox>
+                  <BrandBox
+                    companyWebsite="https://meudroz.com/"
+                    logoTitle="Droz"
+                    brandLogoPath="/droz.svg"
+                    imageClasses="mt-[10px] mr-[10px]"
+                  >
+                    <p className="md:text-[18px] text-white leading-6 text-left">
+                      Plataforma de automação de CX baseada em Inteligência
+                      Artificial que descomplica e potencializa interações.
+                      Simplifica processos, aumenta a produtividade e escala
+                      experiências de forma inteligente.
+                    </p>
+                  </BrandBox>
 
-              <BrandBox
-                companyWebsite="https://workise.com.br/"
-                logoTitle="Workise"
-                brandLogoPath="/workise.svg"
-                imageClasses="mt-3 md:w-16 mt-[18px] mr-[10px]"
-              >
-                <p className="md:text-[18px] text-white leading-6 text-left">
-                  Especialista em simplificar a transformação digital das
-                  operações com automação e integração de processos. Conecta
-                  equipes, organiza fluxos e gera eficiência real para
-                  impulsionar resultados sustentáveis.
-                </p>
-              </BrandBox>
+                  <BrandBox
+                    companyWebsite="https://workise.com.br/"
+                    logoTitle="Workise"
+                    brandLogoPath="/workise.svg"
+                    imageClasses="mt-3 md:w-16 mt-[18px] mr-[10px]"
+                  >
+                    <p className="md:text-[18px] text-white leading-6 text-left">
+                      Especialista em simplificar a transformação digital das
+                      operações com automação e integração de processos. Conecta
+                      equipes, organiza fluxos e gera eficiência real para
+                      impulsionar resultados sustentáveis.
+                    </p>
+                  </BrandBox>
+                </>
+              )}
             </div>
           </div>
         </section>
