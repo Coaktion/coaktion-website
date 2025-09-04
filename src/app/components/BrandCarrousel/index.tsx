@@ -12,7 +12,7 @@ const BUs = [
     logoTitle: "Aktie Now",
     brandLogoPath: "/aktie-now.svg",
     description:
-      "Consultoria estratégica em CX que acelera a transformação digital do atendimento. Com expertise em Zendesk e soluções complementares, transforma operações em ativos estratégicos e gera eficiência em escala..",
+      "Consultoria em Customer Experience que impulsiona a evolução do atendimento ao cliente, convertendo operações em ativos valiosos por meio da combinação de tecnologia, inteligência de negócio e foco em resultados.",
   },
   {
     id: 2,
@@ -37,7 +37,7 @@ const BUs = [
     logoTitle: "Workise",
     brandLogoPath: "/workise.svg",
     description:
-      "Especialista em simplificar a transformação digital das operações com automação e integração de processos. Conectaequipes, organiza fluxos e gera eficiência real para impulsionar resultados sustentáveis.",
+      "Especialista em simplificar a transformação digital das operações com automação e integração de processos. Conecta equipes, organiza fluxos e gera eficiência real para impulsionar resultados sustentáveis.",
   },
 ] as const;
 

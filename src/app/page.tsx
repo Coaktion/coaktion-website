@@ -86,6 +86,7 @@ export default function Page() {
             loop
             muted
             playsInline
+            preload="auto"
           />
           {/* Header */}
           <Header pathToResource="/" />
@@ -331,10 +332,10 @@ export default function Page() {
                     imageClasses="mt-[6px] mr-[10px]"
                   >
                     <p className="md:text-[18px] min-h-[100px] text-white leading-6 text-left">
-                      Consultoria estratégica em CX que acelera a transformação
-                      digital do atendimento. Com expertise em Zendesk e
-                      soluções complementares, transforma operações em ativos
-                      estratégicos e gera eficiência em escala.
+                      Consultoria em Customer Experience que impulsiona a
+                      evolução do atendimento ao cliente, convertendo operações
+                      em ativos valiosos por meio da combinação de tecnologia,
+                      inteligência de negócio e foco em resultados.
                     </p>
                   </BrandBox>
 
