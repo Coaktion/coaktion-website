@@ -296,7 +296,7 @@ export default function Page() {
 
         <section className="w-full py-16 px-4 md:px-8 lg:px-16">
           <div className="flex flex-col mx-auto">
-            <h1 className="md:text-[40px] text-[22px] self-center text-[#A30084] pb-7 pt-7">
+            <h1 className="md:text-[40px] text-[24px] self-center text-[#A30084] text-center pb-7 md:pt-7">
               <span className="font-bold mr-2">Marcas de peso</span>
               que já evoluíram seu negócio
             </h1>
