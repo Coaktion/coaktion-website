@@ -71,51 +71,48 @@ export default function Page() {
   return (
     <>
       <main className="bg-white text-gray-800 ">
-        {/* Header */}
-        <Header pathToResource="/" />
         {/* Seção 1 */}
         <section
           className="w-full
-          bg-black 
-           md:bg-[url('/stars-bg.png')] 
-          md:bg-cover md:bg-no-repeat md:bg-center max-h-[calc(100vh-80px)] min-h-screen md:h-screen relative bg-cover bg-no-repeat bg-center overflow-hidden flex md:items-center items-center justify-center"
+            md:bg-cover
+            min-h-screen md:h-screen
+            relative
+            overflow-hidden flex flex-col justify-start items-center"
         >
-          <MovingSphereBackground />
-          <div className="relative z-10 flex flex-col items-center text-white">
-            <div className="flex flex-col py-8 mt-12 items-center text-center max-w-5xl px-4 md:px-0">
+          <video
+            className="absolute inset-0 w-full h-full object-cover z-0 md:scale-150"
+            src="/Coaktion-Animação-Esfera.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+          />
+          {/* Header */}
+          <Header pathToResource="/" />
+
+          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-white md:-translate-y-10">
+            <div className="flex flex-col py-8 items-center text-center max-w-5xl px-4 md:px-0">
               <h1 className="text-[28px] md:mb-0 mb-0 self-center md:text-[50px]">
                 {t("h1")}
               </h1>
               <h1 className="text-[26px] md:text-[50px] font-bold">
                 {t("h2")}
               </h1>
+              <Link href="#contact-form">
+                <button
+                  className="group inline-flex items-center mt-12 md:mt-6 gap-2 rounded-3xl md:px-5 px-3 md:py-3 py-2 font-medium md:text-[18px] text-[16px] text-white bg-gradient-to-tr from-[#A30084] to-[#C4009F] shadow-lg shadow-[#A30084]/30 transition duration-300 ease-out hover:from-[#8A0072] hover:to-[#A30084] hover:shadow-[#A30084]/50 hover:-translate-y-0.5 active:translate-y-0 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#A30084]/40 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+                  aria-label="Comece agora"
+                >
+                  {t("bannerButton")}
+                  <Image
+                    src="/circle-arrow.svg"
+                    height={24}
+                    width={24}
+                    alt="comece agora"
+                  />
+                </button>
+              </Link>
             </div>
-
-            <Link href="#contact-form">
-              <button
-                className="
-        group inline-flex items-center  mt-12 md:mt-6 gap-2
-        rounded-3xl md:px-6 px-3 md:py-3 py-2 font-medium md:text-[18px] text-[16px]  text-white
-        bg-gradient-to-tr from-[#A30084] to-[#C4009F]
-        shadow-lg shadow-[#A30084]/30
-        transition duration-300 ease-out
-        hover:from-[#8A0072] hover:to-[#A30084]
-        hover:shadow-[#A30084]/50
-        hover:-translate-y-0.5 active:translate-y-0
-        focus:outline-none focus-visible:ring-4 focus-visible:ring-[#A30084]/40
-        focus-visible:ring-offset-2 focus-visible:ring-offset-black
-      "
-                aria-label="Comece agora"
-              >
-                {t("bannerButton")}
-                <Image
-                  src="/circle-arrow.svg"
-                  height={24}
-                  width={24}
-                  alt="comece agora"
-                />
-              </button>
-            </Link>
           </div>
         </section>
 

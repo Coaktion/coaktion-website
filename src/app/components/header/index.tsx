@@ -14,7 +14,7 @@ export const Header = ({ pathToResource }: Props) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full min-h-[80px] py-6 px-4 md:px-4 lg:px-32 bg-black">
+    <div className="items-center w-full top-0 left-0 z-50 pt-6 pb-2 px-4 md:px-4 lg:px-32 bg-red z-99">
       <div className="max-w-full mx-auto flex items-center justify-between">
         {/* Logo */}
         <Link href={pathToResource}>
@@ -22,7 +22,7 @@ export const Header = ({ pathToResource }: Props) => {
             <Image
               src="/logo-co-aktion.svg"
               alt="Logo"
-              className="md:h-10 h-6 w-auto"
+              className="md:h-14 h-6 w-auto"
               width={120}
               height={40}
             />
@@ -78,6 +78,6 @@ export const Header = ({ pathToResource }: Props) => {
           </Link>
         </nav>
       )}
-    </header>
+    </div>
   );
 };
