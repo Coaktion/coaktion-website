@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable prefer-const */
 "use client";
-import { animate, useMotionValue, AnimatePresence } from "framer-motion";
-import React, { useEffect, useRef, useState } from "react";
+import { animate, useMotionValue } from "framer-motion";
+import React, { useEffect, useRef } from "react";
 import useMeasure from "react-use-measure";
 import Image from "next/image";
 import BrandSlider from "./components/brand-slider";

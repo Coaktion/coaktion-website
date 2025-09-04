@@ -47,7 +47,7 @@ export const BrandBox = ({
         boxShadow: `0 8px 30px rgba(0, 0, 0, 0.3)`,
         backgroundBlendMode: "luminosity",
       }}
-      className={`w-full text-white ${gradient} gap-4 shadow-lg hover:shadow-2xl cursor-pointer md:w-1/10 border border-white rounded-xl p-4 flex flex-col gap-2 items-center text-center max-w-[280px] min-h-[400px]`}
+      className={`w-full text-white ${gradient} gap-4 shadow-lg hover:shadow-2xl cursor-pointer md:w-1/10 border border-white rounded-xl p-4 flex flex-col items-center text-center max-w-[280px] min-h-[400px]`}
     >
       <header className="w-full relative h-20">
         <h3 className="font-bold text-white md:text-2xl text-2xl absolute md:left-4 bottom-0">
