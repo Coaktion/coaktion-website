@@ -26,7 +26,7 @@ export const StickFooter: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col mt-8 md:mt-0  gap-2">
+        <div className="flex flex-col mt-8 md:mt-0 gap-2 items-end">
           <div className="flex mt-6 gap-3">
             <a
               href="https://www.linkedin.com/company/coaktion/"
@@ -38,10 +38,6 @@ export const StickFooter: React.FC = () => {
             <a href="https://www.linkedin.com/company/coaktion" target="_blank">
               {" "}
               <img src="/linkedin.svg" alt="LinkedIn" />
-            </a>
-            <a href="https://www.facebook.com/Coaktion" target="_blank">
-              {" "}
-              <img src="/facebook.svg" alt="Facebook" />
             </a>
             <a href="https://www.youtube.com/@coaktion" target="_blank">
               {" "}
