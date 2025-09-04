@@ -50,7 +50,7 @@ export const Header = ({ pathToResource }: Props) => {
             {t("navWorkWithUs")}
           </a>
           <Link
-            href="/contato"
+            href="#contact-form"
             className="text-white text-sm md:text-[16px] hover:text-[#C4009F] transition duration-300 ease-out"
           >
             {t("navContact")}
@@ -70,7 +70,7 @@ export const Header = ({ pathToResource }: Props) => {
             {t("navWorkWithUs")}
           </a>
           <Link
-            href="/contato"
+            href="#contact-form"
             className="text-white text-base border p-2 transition duration-300 ease-out"
             onClick={() => setOpen(false)}
           >

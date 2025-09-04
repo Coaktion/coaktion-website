@@ -28,31 +28,31 @@ export const StickFooter: React.FC = () => {
 
         <div className="flex flex-col mt-8 md:mt-0  gap-2">
           <div className="flex mt-6 gap-3">
-            <a href="https://www.linkedin.com/company/coaktion/">
+            <a href="https://www.linkedin.com/company/coaktion/" target="_blank" >
               {" "}
               <img src="/instagram.svg" alt="Instagram" />
             </a>
-            <a href="#">
+            <a href="https://www.linkedin.com/company/coaktion" target="_blank" >
               {" "}
               <img src="/linkedin.svg" alt="LinkedIn" />
             </a>
-            <a href="#">
+            <a href="https://www.facebook.com/Coaktion" target="_blank" >
               {" "}
               <img src="/facebook.svg" alt="Facebook" />
             </a>
-            <a href="https://www.youtube.com/@coaktion">
+            <a href="https://www.youtube.com/@coaktion" target="_blank" >
               {" "}
               <img src="/youtube.svg" alt="YouTube" />
             </a>
           </div>
           <div className="flex flex-col mt-2 justify-items-end gap-3">
-            <a className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
+            <a href="https://www.aktienow.com/privacy-policy" target="_blank" className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
               Politica e Privacidade
             </a>
-            <a className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
+            <a href="https://www.aktienow.com/terms-and-conditions" target="_blank" className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
               Política de Cookies
             </a>
-            <a className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
+            <a href="https://www.aktienow.com/terms-and-conditions" target="_blank" className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]">
               Termos e Condições
             </a>
           </div>
