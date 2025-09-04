@@ -6,10 +6,10 @@ export const StickFooter: React.FC = () => {
         <img
           src="/footer-logo.svg"
           alt="CoAktion"
-          className="md:w-[300px] w-36 h-36 md:h-56 "
+          className="md:w-[300px] md:h-56 w-[284px] h-55 pb-8"
         />
         <div className="text-white">
-          <div className="flex gap-3">
+          <div className="flex flex-col md:flex-row gap-3 items-center pb-8">
             <img src="/br.svg" alt="Brasil" />
             <span className="text-sm">
               R. Manoel Coelho, 676 - Sala 710 - Centro, <br /> São Caetano do
@@ -17,7 +17,7 @@ export const StickFooter: React.FC = () => {
             </span>
           </div>
 
-          <div className="flex mt-8 gap-3">
+          <div className="flex flex-col md:flex-row gap-3 items-center">
             <img src="/um.svg" alt="Brasil" />
             <span className="text-sm">
               299 Alhambra Circle, St. 403 <br />
@@ -26,7 +26,7 @@ export const StickFooter: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex flex-col mt-8 md:mt-0 gap-2 items-end">
+        <div className="flex flex-col mt-8 md:mt-0 gap-2 md:items-end items-center">
           <div className="flex mt-6 gap-3">
             <a
               href="https://www.linkedin.com/company/coaktion/"
@@ -44,25 +44,25 @@ export const StickFooter: React.FC = () => {
               <img src="/youtube.svg" alt="YouTube" />
             </a>
           </div>
-          <div className="flex flex-col mt-2 justify-items-end gap-3">
+          <div className="flex flex-col mt-2 gap-3 items-center text-center">
             <a
               href="https://www.aktienow.com/privacy-policy"
               target="_blank"
-              className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]"
+              className="text-white md:self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]"
             >
               Politica e Privacidade
             </a>
             <a
               href="https://www.aktienow.com/terms-and-conditions"
               target="_blank"
-              className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]"
+              className="text-white md:self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]"
             >
               Política de Cookies
             </a>
             <a
               href="https://www.aktienow.com/terms-and-conditions"
               target="_blank"
-              className="text-white self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]"
+              className="text-white md:self-end md:mt-0 underline font-semibold cursor-pointer hover:text-[#A30084]"
             >
               Termos e Condições
             </a>

@@ -56,7 +56,7 @@ export const BrandBox = ({
         <img
           src={brandLogoPath}
           alt={logoTitle}
-          className={`md:w-12 h-auto absolute right-0 top-0 ${imageClasses}`}
+          className={`h-auto absolute right-0 top-0 ${imageClasses}`}
         />
       </header>
       <main className="md:px-4">{children}</main>

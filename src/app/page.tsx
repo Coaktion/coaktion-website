@@ -329,7 +329,7 @@ export default function Page() {
                     companyWebsite="https://www.aktienow.com"
                     logoTitle="Aktie Now"
                     brandLogoPath="/aktie-now.svg"
-                    imageClasses="mt-[6px] mr-[10px]"
+                    imageClasses="md:w-10 mt-[6px] mr-[10px]"
                   >
                     <p className="md:text-[18px] min-h-[100px] text-white leading-6 text-left">
                       Consultoria em Customer Experience que impulsiona a
@@ -343,9 +343,9 @@ export default function Page() {
                     companyWebsite="https://callwe.io/"
                     logoTitle="Callwe"
                     brandLogoPath="/callwe.svg"
-                    imageClasses="mt-[6px] mr-[20px]"
+                    imageClasses="md:w-11 mt-[6px] mr-[20px]"
                   >
-                    <p className="md:text-[18px] text-white leading-6 text-left">
+                    <p className="md:text-[18px]  text-white leading-6 text-left">
                       Plataforma de telefonia em nuvem que assegura
                       estabilidade, alta qualidade de voz e integração flexível.
                       Garante conexões consistentes entre empresas e clientes em
@@ -356,7 +356,7 @@ export default function Page() {
                     companyWebsite="https://meudroz.com/"
                     logoTitle="Droz"
                     brandLogoPath="/droz.svg"
-                    imageClasses="mt-[10px] mr-[10px]"
+                    imageClasses="md:w-12 mt-[10px] mr-[10px]"
                   >
                     <p className="md:text-[18px] text-white leading-6 text-left">
                       Plataforma de automação de CX baseada em Inteligência
