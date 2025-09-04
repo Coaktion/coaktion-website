@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 export const StickFooter: React.FC = () => {
   return (
-    <div className="bottom-0 w-full flex-col min-h-[320px] flex justify-center items-center bg-black mt-6 md:py-18 px-4 md:px-16 lg:px-24">
+    <div className="bottom-0 w-full flex-col min-h-[320px] flex justify-center items-center bg-black mt-6 md:py-18 px-4 md:px-16 lg:px-24 pb-50">
       <div className="flex md:flex-row flex-col md:gap-24 items-center justify-evenly min-w-[70%]">
         <img
           src="/footer-logo.svg"
@@ -58,9 +58,6 @@ export const StickFooter: React.FC = () => {
           </div>
         </div>
       </div>
-      <span className="text-sm mt-12 text-white font-bold">
-        © {new Date().getFullYear()} All Rights Reserved By Coaktion
-      </span>
     </div>
   );
 };
