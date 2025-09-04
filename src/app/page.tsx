@@ -259,8 +259,8 @@ export default function Page() {
             {/* 1 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <OfficeIcon />
-              <p className="md:text-[24px] text-[24px]">Escritórios no</p>
-              <p className="font-bold text-white md:text-[30px] text-[20px] mt-2">
+              <p className="md:text-[24px] text-[20px]">Escritórios no</p>
+              <p className="font-bold text-white md:text-[35px] text-[20px] mt-2">
                 <ScrambleText duration={1200} text="Brasil e Estados Unidos" />
               </p>
             </div>
@@ -268,7 +268,7 @@ export default function Page() {
             {/* 2 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <EarthIcon />
-              <p className="md:text-[24px] text-[24px]">Projetos em</p>
+              <p className="md:text-[24px] text-[20px]">Projetos em</p>
               <p className="font-bold text-white md:text-[35px] text-[20px] mt-4">
                 <ScrambleText duration={1800} text="+ 11 países" />
               </p>
@@ -277,19 +277,19 @@ export default function Page() {
             {/* 3 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <Badge />
-              <p className="md:text-[24px] text-[24px]">
+              <p className="md:text-[24px] text-[20px]">
                 Das 100 maiores marcas
               </p>
-              <p className="font-bold text-white md:text-[30px] text-[20px] mt-2">
+              <p className="font-bold text-white md:text-[35px] text-[20px] mt-2">
                 <ScrambleText duration={2400} text="15 estão com a gente" />
               </p>
             </div>
           </div>
-          <h1 className="md:text-[40px] md:mt-16 mt-8 md:mb-0 mb-8 text-white">
-            <span className="font-bold text-[18px] md:text-[36px]">
+          <h1 className="md:text-[40px] md:mt-16 mt-8 md:mb-0 mb-8 text-white text-center">
+            <span className="font-bold text-[24px] md:text-[36px]">
               Reconhecidos e premiados
             </span>{" "}
-            globalmente
+            <span className="text-[24px] md:text-[36px]">globalmente</span>
           </h1>
           <PremiumCarousel prizes={prizes} />
         </section>
