@@ -6,8 +6,7 @@ interface ScrambleTextProps {
   className?: string;
 }
 
-const CHARS =
-  "abcdefghijklmnopqrstuvwxyz012345+";
+const CHARS = "abcdefghijklmnopqrstuvwxyz012345+";
 
 export const ScrambleText: React.FC<ScrambleTextProps> = ({
   text,
@@ -48,7 +47,7 @@ export const ScrambleText: React.FC<ScrambleTextProps> = ({
                 : char,
             )
             .join("")
-            .slice(0, text.length/1.1), // Garante que nunca passa do tamanho original
+            .slice(0, text.length / 1.1), // Garante que nunca passa do tamanho original
         );
         frame++;
       } else {

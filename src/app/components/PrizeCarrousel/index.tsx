@@ -1,52 +1,65 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
-import { useState } from "react";
 import { PremiumCard } from "../premium-card";
 import { useIsMobile } from "@/app/hooks/mobile";
+import React, { useEffect } from "react";
 
 export const PremiumCarousel = ({ prizes }: { prizes: any[] }) => {
-  const [centerPrizeIndex, setCenterPrizeIndex] = useState(0);
   const isMobile = useIsMobile();
+  const [centerPrizeId, setCenterPrizeId] = React.useState(prizes[0]?.id);
+  const [loading, setLoading] = React.useState(true);
+
+  const onSliderChange = (slider: any) => {
+    const centerIndex = slider.track.details.rel % prizes.length;
+    const centerPrize = prizes[centerIndex];
+    if (centerPrize) setCenterPrizeId(centerPrize.id);
+  };
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     loop: true,
+    renderMode: "performance",
+    mode: "free-snap",
     slides: {
       perView: isMobile ? 1 : 3,
       spacing: 24,
+      origin: "center",
     },
-    initial: 1,
-    slideChanged(slider) {
-      const slides = slider.track.details.slides;
-      const center = slides.find((s) => s.portion === 1);
+    defaultAnimation: {
+      duration: 1000,
+      easing: (t) => t,
+    },
 
-      if (center) {
-        console.log(center);
-        const realIndex = center.abs % prizes.length;
-        setCenterPrizeIndex(realIndex);
-      }
-    },
+    slideChanged: onSliderChange,
   });
+
+  useEffect(() => {
+    const load = async () => {
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      setLoading(false);
+    };
+    load();
+  }, [prizes]);
+
+  if (loading) return;
 
   return (
     <div className="w-full">
       <div ref={sliderRef} className="keen-slider">
-        {prizes.map((prize) => {
-          return (
-            <div
-              key={prize.id}
-              className="keen-slider__slide flex w-full justify-center"
-            >
-              <PremiumCard
-                highlighted={true}
-                prize={{
-                  id: prize.id,
-                  title: prize.title,
-                  img: prize.img,
-                }}
-              />
-            </div>
-          );
-        })}
+        {prizes.map((prize) => (
+          <div
+            key={prize.id}
+            className="keen-slider__slide flex w-full justify-center"
+          >
+            <PremiumCard
+              highlighted={prize.id === centerPrizeId}
+              prize={{
+                id: prize.id,
+                title: prize.title,
+                img: prize.img,
+              }}
+            />
+          </div>
+        ))}
       </div>
       {!isMobile && (
         <div className="flex justify-center mt-4 gap-4">
@@ -54,7 +67,7 @@ export const PremiumCarousel = ({ prizes }: { prizes: any[] }) => {
             <button
               key={idx}
               className={`w-4 h-4 rounded-full ${
-                centerPrizeIndex === idx ? "bg-white" : "bg-white/30"
+                prizes[idx].id === centerPrizeId ? "bg-white" : "bg-white/30"
               }`}
               onClick={() => instanceRef.current?.moveToIdx(idx)}
             />
