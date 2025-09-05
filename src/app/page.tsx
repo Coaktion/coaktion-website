@@ -75,14 +75,16 @@ export default function Page() {
         {/* Seção 1 */}
         <section
           className="w-full
+            bg-black bg-no-repeat
             md:bg-cover
             min-h-screen md:h-screen
             relative
             overflow-hidden flex flex-col justify-start items-center"
         >
           <video
-            className="absolute inset-0 w-full h-full object-cover z-0 md:scale-150"
-            src="/Coaktion-Animação-Esfera.mp4"
+            className="absolute inset-0 w-full h-full z-0 object-cover"
+            src="/Coaktion-Animação Esfera_banner-site.webm"
+            style={{ objectPosition: "center", scale: "1.2" }}
             autoPlay
             loop
             muted
