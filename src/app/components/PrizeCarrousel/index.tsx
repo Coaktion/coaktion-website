@@ -5,7 +5,6 @@ import { PremiumCard } from "../premium-card";
 import { useIsMobile } from "@/app/hooks/mobile";
 import React, { useEffect } from "react";
 
-
 export const PremiumCarousel = ({ prizes }: { prizes: any[] }) => {
   const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const isMobile = useIsMobile();
@@ -45,7 +44,7 @@ export const PremiumCarousel = ({ prizes }: { prizes: any[] }) => {
     },
     created(slider) {
       startAutoSlide(slider);
-    }
+    },
   });
 
   useEffect(() => {

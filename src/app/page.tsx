@@ -256,14 +256,20 @@ export default function Page() {
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <OfficeIcon />
               <p className="md:text-[24px] text-[20px]">Escritórios no</p>
-              <FadeInText text="Brasil e Estados Unidos" className="font-bold text-white md:text-[35px] text-[20px] mt-2" />
+              <FadeInText
+                text="Brasil e Estados Unidos"
+                className="font-bold text-white md:text-[35px] text-[20px] mt-2"
+              />
             </div>
 
             {/* 2 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <EarthIcon />
               <p className="md:text-[24px] text-[20px]">Projetos em</p>
-              <FadeInText text="+ 11 países" className="font-bold text-white md:text-[35px] text-[20px] mt-2" />
+              <FadeInText
+                text="+ 11 países"
+                className="font-bold text-white md:text-[35px] text-[20px] mt-2"
+              />
             </div>
 
             {/* 3 */}
@@ -272,7 +278,10 @@ export default function Page() {
               <p className="md:text-[24px] text-[20px]">
                 Das 100 maiores marcas
               </p>
-              <FadeInText text="15 estão com a gente" className="font-bold text-white md:text-[35px] text-[20px] mt-2" />
+              <FadeInText
+                text="15 estão com a gente"
+                className="font-bold text-white md:text-[35px] text-[20px] mt-2"
+              />
             </div>
           </div>
           <h1 className="md:text-[40px] md:mt-16 mt-8 md:mb-0 mb-8 text-white text-center">
