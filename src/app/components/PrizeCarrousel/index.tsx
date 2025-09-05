@@ -5,10 +5,20 @@ import { PremiumCard } from "../premium-card";
 import { useIsMobile } from "@/app/hooks/mobile";
 import React, { useEffect } from "react";
 
+
 export const PremiumCarousel = ({ prizes }: { prizes: any[] }) => {
+  const intervalRef = React.useRef<NodeJS.Timeout | null>(null);
   const isMobile = useIsMobile();
   const [centerPrizeId, setCenterPrizeId] = React.useState(prizes[0]?.id);
   const [loading, setLoading] = React.useState(true);
+
+  const startAutoSlide = (slider: any) => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+
+    intervalRef.current = setInterval(() => {
+      slider.next();
+    }, 4600);
+  };
 
   const onSliderChange = (slider: any) => {
     const centerIndex = slider.track.details.rel % prizes.length;
@@ -29,7 +39,13 @@ export const PremiumCarousel = ({ prizes }: { prizes: any[] }) => {
       easing: (t) => t,
     },
 
-    slideChanged: onSliderChange,
+    slideChanged(slider) {
+      onSliderChange(slider);
+      startAutoSlide(slider);
+    },
+    created(slider) {
+      startAutoSlide(slider);
+    }
   });
 
   useEffect(() => {

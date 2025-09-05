@@ -23,6 +23,7 @@ import { GetResponseForm } from "./components/get-response-form";
 import { PremiumCarousel } from "./components/PrizeCarrousel";
 import { ScrambleText } from "./components/animated-shuffle-letters";
 import { BrandCarrousel } from "./components/BrandCarrousel";
+import { FadeInText } from "./components/animated-fade-in";
 
 export default function Page() {
   const [_, { width }] = useMeasure();
@@ -190,7 +191,7 @@ export default function Page() {
 
             <div className="md:w-[33%] w-full mt-6 md:mt-0 px-2">
               <p className="text-md md:text-[20px]">
-                É por isso que existimos:
+                É por isso que existimos:&nbsp;
                 <span className="font-bold">
                   para que você não faça parte dessas estatísticas.
                 </span>
@@ -255,18 +256,14 @@ export default function Page() {
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <OfficeIcon />
               <p className="md:text-[24px] text-[20px]">Escritórios no</p>
-              <p className="font-bold text-white md:text-[35px] text-[20px] mt-2">
-                <ScrambleText duration={1200} text="Brasil e Estados Unidos" />
-              </p>
+              <FadeInText text="Brasil e Estados Unidos" className="font-bold text-white md:text-[35px] text-[20px] mt-2" />
             </div>
 
             {/* 2 */}
             <div className="flex flex-col items-center justify-center p-4 text-center">
               <EarthIcon />
               <p className="md:text-[24px] text-[20px]">Projetos em</p>
-              <p className="font-bold text-white md:text-[35px] text-[20px] mt-4">
-                <ScrambleText duration={1800} text="+ 11 países" />
-              </p>
+              <FadeInText text="+ 11 países" className="font-bold text-white md:text-[35px] text-[20px] mt-2" />
             </div>
 
             {/* 3 */}
@@ -275,9 +272,7 @@ export default function Page() {
               <p className="md:text-[24px] text-[20px]">
                 Das 100 maiores marcas
               </p>
-              <p className="font-bold text-white md:text-[35px] text-[20px] mt-2">
-                <ScrambleText duration={2400} text="15 estão com a gente" />
-              </p>
+              <FadeInText text="15 estão com a gente" className="font-bold text-white md:text-[35px] text-[20px] mt-2" />
             </div>
           </div>
           <h1 className="md:text-[40px] md:mt-16 mt-8 md:mb-0 mb-8 text-white text-center">
