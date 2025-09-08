@@ -81,15 +81,11 @@ export default function Page() {
             relative
             overflow-hidden flex flex-col justify-start items-center"
         >
-          <video
+          <img
             className="absolute inset-0 w-full h-full z-0 object-cover"
-            src="/Coaktion-Animação Esfera_banner-site.webm"
-            style={{ objectPosition: "center", scale: "1.2" }}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
+            src="/EsferaCoaktion_Horizontal.png"
+            style={{ objectPosition: "center", scale: "1" }}
+            alt="Banner do site"
           />
           {/* Header */}
           <Header pathToResource="/" />
