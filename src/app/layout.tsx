@@ -28,6 +28,10 @@ export default async function RootLayout({
   const messages = await getMessages();
   return (
     <html lang={locale} className="scroll-smooth scroll-pt-[92px]">
+      <meta
+        name="google-site-verification"
+        content="egCsjdRFJqdgrqpNFT3pYzOWtq4bSDM5cXJC6G1VJXY"
+      />
       <body className={`${poppins.variable} ${poppins.className} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <Script id="getresponse-tracking" strategy="afterInteractive">
