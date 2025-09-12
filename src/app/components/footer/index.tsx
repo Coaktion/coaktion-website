@@ -28,10 +28,7 @@ export const StickFooter: React.FC = () => {
 
         <div className="flex flex-col mt-8 md:mt-0 gap-2 md:items-end items-center">
           <div className="flex mt-6 gap-3">
-            <a
-              href="https://www.instagram.com/coaktion/"
-              target="_blank"
-            >
+            <a href="https://www.instagram.com/coaktion/" target="_blank">
               {" "}
               <img src="/instagram.svg" alt="Instagram" />
             </a>
