@@ -20,8 +20,8 @@ export const StickFooter: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-3 items-center">
             <img src="/um.svg" alt="Brasil" />
             <span className="text-sm">
-              299 Alhambra Circle, St. 403 <br />
-              Coral Gables, FL 33134
+              2 S Biscayne Blvd #2450 <br />
+              Miami, FL 33131
             </span>
           </div>
         </div>
