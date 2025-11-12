@@ -32,6 +32,17 @@ export default async function RootLayout({
         name="google-site-verification"
         content="egCsjdRFJqdgrqpNFT3pYzOWtq4bSDM5cXJC6G1VJXY"
       />
+      <head>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-JWTJ7N83RJ"></script>
+        <script>
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-JWTJ7N83RJ');
+          `}
+        </script>
+      </head>
       <body className={`${poppins.variable} ${poppins.className} antialiased`}>
         <NextIntlClientProvider messages={messages}>
           <Script id="getresponse-tracking" strategy="afterInteractive">
